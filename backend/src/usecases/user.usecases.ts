@@ -15,7 +15,7 @@ class UserUseCase{
     async create({ externalId, firstName, lastName, email }:IUserCreate): Promise<IUser>{
         const existingUser = await this.userRepository.findByEmail(email);
         if (existingUser) {
-            throw new Error('Email already exists');
+            throw new Error('Email já existente');
         }
         return this.userRepository.create({ externalId, firstName, lastName, email });
     }
