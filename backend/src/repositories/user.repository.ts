@@ -29,6 +29,29 @@ class UserRepositoryPrisma implements UserRepository {
         }
       }
 
+      async findUserByExternalId(externalId: string): Promise<IUser | null> {
+        try {
+          return await prisma.user.findFirst({
+            where: {
+              externalId,
+            },
+          });
+        } catch (error) {
+          throw new Error("Failed to find user by external id.");
+        }
+      }
+
+      async delete(id: string): Promise<void> {
+        try {
+          await prisma.user.delete({
+            where: {
+              id,
+            },
+          });
+        } catch (error) {
+          throw new Error("Failed to delete user");
+        }
+      }
 }
 
 export {UserRepositoryPrisma}

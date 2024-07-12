@@ -1,6 +1,11 @@
 import { IUser, IUserCreate, UserRepository } from "../interfaces/user.interface";
 
 class UserUseCase{
+    async deleteByClerk(externalId: any) {
+        const findId = await this.userRepository.findUserByExternalId(externalId);
+        if (!findId) throw new Error('User not found');
+        return await this.userRepository.delete(findId.id);
+    }
     private userRepository: UserRepository;
 
     constructor(userRepository:UserRepository){

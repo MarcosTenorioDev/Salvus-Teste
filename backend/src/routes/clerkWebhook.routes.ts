@@ -62,7 +62,12 @@ router.post("/api/webhooks", async (req: Request, res: Response) => {
 		switch (type) {
 			case "user.deleted":
 				console.log("user deleted");
-				console.log("Webhook body:", data);
+				try {
+                    const data = await userUseCase.deleteByClerk(id);
+                    return res.send(data);
+                  } catch (error) {
+                    res.send(error)
+                  }
 				break;
 			case "user.created":
 				console.log("user created");
