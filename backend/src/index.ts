@@ -1,9 +1,10 @@
 import express, { Request, Response } from "express";
 import cors from "cors";
 import dotenv from 'dotenv'
+import { env } from "./env";
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = parseInt(env.PORT as string);
 dotenv.config();
 
 app.use(cors());
