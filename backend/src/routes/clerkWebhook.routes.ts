@@ -2,6 +2,8 @@ import express, { Request, Response, NextFunction } from 'express';
 import bodyParser from 'body-parser';
 import { Webhook } from 'svix';
 import { env } from '../env';
+import { UserRepositoryPrisma } from '../repositories/user.repository';
+import { UserUseCase } from '../usecases/user.usecases';
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -11,6 +13,9 @@ app.use(bodyParser.json());
 
 // Route for handling webhooks
 app.post('/api/webhooks', async (req: Request, res: Response, next: NextFunction) => {
+
+    const userRepositoryPrisma = new UserRepositoryPrisma();
+    const userUseCase = new UserUseCase(userRepositoryPrisma);
 
   // Check if the 'Signing Secret' from the Clerk Dashboard was correctly provided
   const WEBHOOK_SECRET = env.WEBHOOK_SECRET;
@@ -68,7 +73,12 @@ app.post('/api/webhooks', async (req: Request, res: Response, next: NextFunction
         break;
       case 'user.created':
         console.log('user created');
-        console.log('Webhook body:', data);
+        await userUseCase.create({
+            externalId: id,
+            firstName: first_name,
+            lastName: last_name,
+            email: email_addresses[0].email_address,
+          });
         break;
       case 'user.updated':
         console.log('user updated');
