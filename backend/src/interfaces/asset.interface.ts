@@ -6,7 +6,7 @@ export interface IAsset {
     description: string | null;
 }
 export interface IAssetCreate { 
-    productId: string;
+    productId: string | null;
     type: string;
     url: string;
     description: string | null;
