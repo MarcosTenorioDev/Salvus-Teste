@@ -41,6 +41,6 @@ export async function jwtValidator(req: any, reply: any) {
 
   } catch (error: any) {
     console.error('JWT Verification Error:', error.message);
-    throw new Error('Invalid Token');
+    reply.status(403).json(error.message);
   }
 }
