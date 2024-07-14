@@ -26,7 +26,7 @@ model Product {
   price       Float
   createdAt   DateTime  @default(now())
   userId      String
-  user        User      @relation(fields: [userId], references: [id])
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
   assets      Asset[]
 
   @@map("products")
@@ -38,7 +38,7 @@ model Asset {
   type        String
   url         String
   description String?
-  product     Product   @relation(fields: [productId], references: [id])
+  product     Product   @relation(fields: [productId], references: [id], onDelete: Cascade)
 
   @@map("assets")
 }
