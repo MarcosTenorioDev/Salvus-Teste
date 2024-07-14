@@ -8,9 +8,9 @@ import { UserUseCase } from "../usecases/user.usecases";
 
 const router = Router();
 const userRepository = new UserRepositoryPrisma();
-const userUseCase = new UserUseCase(userRepository)
+const userUseCase = new UserUseCase(userRepository);
 const productRepository = new ProductRepositoryPrisma();
-const productUseCase = new ProductUseCase(productRepository);
+const productUseCase = new ProductUseCase(productRepository, userRepository);
 
 router.get("/", async (req: Request, res: Response) => {
 	try {
@@ -51,7 +51,7 @@ router.post(
 				description,
 				name,
 				price,
-				userId:user.id,
+				userId: user.id,
 				assets,
 			});
 			res.status(201).json(product);
@@ -60,5 +60,15 @@ router.post(
 		}
 	}
 );
+
+router.delete("/:id", jwtValidator, async (req: Request, res: Response) => {
+	const { externalId, id } = req.params;
+	try{
+		await productUseCase.deleteProductById(id, externalId);
+		res.status(204).json("Produto excluído com sucesso")
+	}catch(err){
+		res.status(404).send(err)
+	}
+});
 
 export default router;

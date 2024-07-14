@@ -75,6 +75,18 @@ class ProductRepositoryPrisma implements ProductRepository {
 			throw new Error(`Erro ao criar produto, ${error}`);
 		}
 	}
+
+	async deleteProductById(id:string):Promise<void>{
+		try{
+			await prisma.product.delete({
+				where: {
+					id
+				}
+			})
+		}catch(err){
+			throw new Error(`Erro ao excluir o produto, ${err}`);
+		}
+	}
 }
 
 export { ProductRepositoryPrisma };
