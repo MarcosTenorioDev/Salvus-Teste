@@ -30,10 +30,6 @@ class ProductUseCase {
 	}
 
 	async create(data: IProductCreate): Promise<IProduct> {
-		/*  if(data.assets){
-            let assets: IAssetCreate[] = data.assets
-            //Criar rotina para armazenar o base64 em uma url e retornar o payload com a url formatada...
-        } */
 		const product = await this.productRepository.create(data);
 		return product;
 	}

@@ -1,10 +1,12 @@
 import { prisma } from "../db/prisma-client";
-import { IAsset } from "../interfaces/asset.interface";
+import { IAsset, IAssetCreate } from "../interfaces/asset.interface";
 import {
 	IProduct,
 	IProductCreate,
 	ProductRepository,
 } from "../interfaces/product.interface";
+import { AssetUseCase } from "../usecases/assets.usecases";
+import { AssetRepositoryPrisma } from "./asset.repository";
 
 class ProductRepositoryPrisma implements ProductRepository {
 	async getAllProducts(): Promise<IProduct[] | []> {
@@ -47,22 +49,13 @@ class ProductRepositoryPrisma implements ProductRepository {
 						userId: data.userId,
 					},
 				});
-
-				const createdAssets : IAsset[] | [] = data.assets
-					? await Promise.all(
-							data?.assets.map(async (asset) => {
-								return prisma.asset.create({
-									data: {
-										productId: createdProduct.id,
-										type: asset.type,
-										url: asset.url,
-										description: asset.description,
-									},
-								});
-							})
-					  )
+				const assetRepository = new AssetRepositoryPrisma();
+				const assetUseCase = new AssetUseCase(assetRepository);
+				const createdAssets: IAsset[] | [] = data.assets
+					? await assetUseCase.createAsset(data.assets)
 					: [];
 
+					console.log(createdAssets)
 				const product: IProduct = {
 					...createdProduct,
 					assets: createdAssets,
@@ -76,14 +69,14 @@ class ProductRepositoryPrisma implements ProductRepository {
 		}
 	}
 
-	async deleteProductById(id:string):Promise<void>{
-		try{
+	async deleteProductById(id: string): Promise<void> {
+		try {
 			await prisma.product.delete({
 				where: {
-					id
-				}
-			})
-		}catch(err){
+					id,
+				},
+			});
+		} catch (err) {
 			throw new Error(`Erro ao excluir o produto, ${err}`);
 		}
 	}
