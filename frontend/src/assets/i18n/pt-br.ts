@@ -1,7 +1,8 @@
 export class LanguageKeysPt {
     public application = {
       global: {
-        applicationName: "Salvus"
+        applicationName: "Salvus",
+        currencyPrefix:"R$"
       },
       components: {
         navbar:{
