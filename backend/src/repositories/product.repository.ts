@@ -7,6 +7,7 @@ import {
 } from "../interfaces/product.interface";
 import { AssetUseCase } from "../usecases/assets.usecases";
 import { AssetRepositoryPrisma } from "./asset.repository";
+import { UserRepositoryPrisma } from "./user.repository";
 
 class ProductRepositoryPrisma implements ProductRepository {
 	async getAllProducts(): Promise<IProduct[] | []> {
@@ -40,29 +41,36 @@ class ProductRepositoryPrisma implements ProductRepository {
 
 	async create(data: IProductCreate): Promise<IProduct> {
 		try {
-			return await prisma.$transaction(async (prisma) => {
-				const createdProduct = await prisma.product.create({
-					data: {
-						name: data.name,
-						description: data.description,
-						price: data.price,
-						userId: data.userId,
-					},
-				});
-				const assetRepository = new AssetRepositoryPrisma();
-				const assetUseCase = new AssetUseCase(assetRepository);
-				const createdAssets: IAsset[] | [] = data.assets
-					? await assetUseCase.createAsset(data.assets)
-					: [];
-
-					console.log(createdAssets)
-				const product: IProduct = {
-					...createdProduct,
-					assets: createdAssets,
-				};
-
-				return product;
+			const product = await prisma.product.create({
+				data: {
+					name: data.name,
+					description: data.description,
+					price: data.price,
+					userId: data.userId,
+				},
 			});
+
+			const assetRepository = new AssetRepositoryPrisma();
+			const userRepository = new UserRepositoryPrisma();
+			const assetUseCase = new AssetUseCase(
+				assetRepository,
+				this,
+				userRepository
+			);
+			const assetsWithProductId = data.assets?.map((asset: IAssetCreate) => ({
+				base64Data: asset.base64Data,
+				description: asset.description,
+				productId: product.id,
+				type: asset.type,
+			}));
+			const createdAssets: IAsset[] | [] = assetsWithProductId
+				? await assetUseCase.createAsset(assetsWithProductId)
+				: [];
+
+			return {
+				...product,
+				assets: createdAssets,
+			};
 		} catch (error) {
 			console.error("Error creating product and assets:", error);
 			throw new Error(`Erro ao criar produto, ${error}`);
