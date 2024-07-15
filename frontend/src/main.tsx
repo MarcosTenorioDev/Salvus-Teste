@@ -4,6 +4,7 @@ import App from "./App.tsx";
 import "./index.css";
 import { ClerkProvider } from "@clerk/clerk-react";
 import { ptBR } from "@clerk/localizations";
+import { LangProvider } from "./assets/i18n/index.tsx";
 
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 if (!PUBLISHABLE_KEY) {
@@ -19,7 +20,9 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
 			}}
 			localization={ptBR}
 		>
-			<App />
+			<LangProvider>
+				<App />
+			</LangProvider>
 		</ClerkProvider>
 	</React.StrictMode>
 );
