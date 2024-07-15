@@ -2,7 +2,15 @@ export class LanguageKeysPt {
     public application = {
       global: {
         applicationName: "Salvus"
-      }
+      },
+      components: {
+        navbar:{
+            login:"Login", 
+            register: "Cadastrar-se",
+            myProducts:"Meus produtos",
+            logout:"Sair da conta"
+        }
+    },
     };
     //exemplos para alternativas de uso abaixo
     /* public WELCOME_HEADLINE = "Bem vindo ao app";

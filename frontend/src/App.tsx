@@ -1,13 +1,34 @@
-import { useT } from "./assets/i18n"
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Navbar from "./layout/Navbar/Navbar";
+import Home from "./pages/Home/Home";
 
 function App() {
-  const t = useT()
 
-  return (
-    <>
-      <h1>{t("application.global.applicationName")}</h1>
-    </>
-  )
+	function UserLayout({ children }: any) {
+		return (
+			<>
+				<Navbar />
+				{children}
+			</>
+		);
+	}
+
+	return (
+		<>
+			<BrowserRouter>
+				<Routes>
+					<Route
+						path="/"
+						element={
+							<UserLayout>
+								<Home />
+							</UserLayout>
+						}
+					/>
+				</Routes>
+			</BrowserRouter>
+		</>
+	);
 }
 
-export default App
+export default App;
