@@ -4,6 +4,13 @@ export class LanguageKeysPt {
         applicationName: "Salvus",
         currencyPrefix:"R$"
       },
+      pages:{
+        homepage:{
+          bannerTitle:"Seja bem vindo(a) ao med+",
+          bannerDescription:"Sua fonte confiável de produtos médicos de qualidade. Explore nossa ampla gama de produtos projetados para suas necessidades de saúde e bem-estar",
+          bannerAction:"Comprar agora"
+        }
+      },
       components: {
         navbar:{
             login:"Login", 
