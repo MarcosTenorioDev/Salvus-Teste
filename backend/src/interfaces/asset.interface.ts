@@ -21,4 +21,6 @@ export interface IAssetCreatePrisma {
 
 export interface AssetRepository {
 	create(asset: IAssetCreatePrisma[]): Promise<IAsset[]>;
+	delete(id:string):Promise<void>
+	getAssetById(id:string):Promise<IAsset | null>
 }

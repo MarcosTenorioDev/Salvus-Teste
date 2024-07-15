@@ -4,13 +4,19 @@ import {
 	IAssetCreate,
 	IAssetCreatePrisma,
 } from "../interfaces/asset.interface";
+import { ProductRepository } from "../interfaces/product.interface";
+import { UserRepository } from "../interfaces/user.interface";
 import S3Storage from "../utils/s3.utils";
 
 class AssetUseCase {
 	private assetRepository: AssetRepository;
+    private productRepository: ProductRepository
+    private userRepository: UserRepository
 	private s3 = new S3Storage();
-	constructor(assetRepository: AssetRepository) {
+	constructor(assetRepository: AssetRepository, productRepository: ProductRepository, userRepository:UserRepository) {
 		this.assetRepository = assetRepository;
+        this.productRepository = productRepository
+        this.userRepository = userRepository
 	}
 
 	async createAsset(data: IAssetCreate[] | IAssetCreate): Promise<IAsset[]> {
@@ -60,5 +66,28 @@ class AssetUseCase {
 
 		return assetsResult;
 	}
+
+    async delete(id:string, externalId:string){
+
+        const asset = await this.assetRepository.getAssetById(id);
+		if (!asset) {
+			throw new Error("Asset não encontrado");
+		}
+        const product = await this.productRepository.getProductById(asset.productId)
+        if(!product){
+            throw new Error("Produto não encontrado");
+        }
+        const user = await this.userRepository.findUserByExternalId(externalId)
+        if(!user){
+            throw new Error("Operação não permitida, por favor, contatar o suporte técnico");
+        }
+
+        //Created in the cases that a user try to delete assets from other people...
+        if(product.userId !== user.id){
+            throw new Error("Operação não permitida, por favor, contatar o suporte técnico");
+        }
+
+		return await this.assetRepository.delete(id)
+    }
 }
 export { AssetUseCase };

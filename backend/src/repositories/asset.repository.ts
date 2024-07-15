@@ -25,6 +25,30 @@ class AssetRepositoryPrisma implements AssetRepository {
 			throw new Error("Erro ao criar assets");
 		}
 	}
+
+	async delete(id: string): Promise<void> {
+		try{
+			await prisma.asset.delete({
+				where:{
+					id
+				}
+			})
+		}catch(err){
+			throw new Error("Houve um erro ao excluir o asset do produto")
+		}
+	}
+
+	async getAssetById(id: string): Promise<IAsset | null> {
+		try{
+			return await prisma.asset.findUnique({
+				where:{
+					id
+				}
+			})
+		}catch(err){
+			throw new Error("Não foi possível encontrar o asset do produto")
+		}
+	}
 }
 
 export { AssetRepositoryPrisma };
