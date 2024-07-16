@@ -18,6 +18,11 @@ class ProductService {
 		);
         return response
 	}
+
+	async getProductById(id:string){
+		const product = await this.axios.get(`${this.api}/products/${id}`)
+		return product
+	}
 }
 
 export default ProductService;
