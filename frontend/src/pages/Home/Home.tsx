@@ -130,8 +130,7 @@ const Home = () => {
 								id={product.id}
 								price={product.price}
 								key={product.id}
-								createdAt={product.createdAt}
-								userId={product.userId}
+								navigateTo={`/product/${product.id}`}
 							/>
 						))}
 					</main>

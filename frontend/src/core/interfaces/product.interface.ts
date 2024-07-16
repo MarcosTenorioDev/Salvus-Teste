@@ -9,3 +9,12 @@ export interface IProduct{
     userId:string,
     assets:IAsset[] | []
 }
+
+export interface IProductCard{
+    id:string,
+    name:string,
+    description:string,
+    price:number,
+    assets:IAsset[] | []
+    navigateTo: string
+}

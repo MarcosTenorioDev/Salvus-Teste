@@ -1,10 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import { Card, CardContent, CardFooter } from "../ui/card";
 import { useT } from "@/assets/i18n";
-import { IProduct } from "@/core/interfaces/product.interface";
+import { IProductCard } from "@/core/interfaces/product.interface";
 
-const ProductCard = (props: IProduct) => {
-	const { price, description, id, assets, name } = props;
+const ProductCard = (props: IProductCard) => {
+	const { price, description, assets, name, navigateTo } = props;
 	const navigate = useNavigate();
 	const t = useT();
 
@@ -14,7 +14,7 @@ const ProductCard = (props: IProduct) => {
 				<CardContent className="p-0 h-48 overflow-hidden">
 					<div
 						className="w-full h-full bg-no-repeat bg-cover bg-center relative cursor-pointer"
-						onClick={() => navigate(`/product/${id}`)}
+						onClick={() => navigate(navigateTo)}
 					>
 						<img
 							src={
@@ -30,13 +30,13 @@ const ProductCard = (props: IProduct) => {
 				<CardFooter className="p-4 flex flex-col items-start text-black">
 					<p
 						className="text-lg font-semibold mb-1 truncate hover:underline cursor-pointer"
-						onClick={() => navigate(`/product/${id}`)}
+						onClick={() => navigate(navigateTo)}
 					>
 						{name}
 					</p>
 					<p
 						className="text-sm text-gray-600 mb-2 truncate w-full hover:underline cursor-pointer"
-						onClick={() => navigate(`/product/${id}`)}
+						onClick={() => navigate(navigateTo)}
 					>
 						{description}
 					</p>
