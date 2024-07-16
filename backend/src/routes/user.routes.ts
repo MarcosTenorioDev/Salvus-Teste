@@ -9,7 +9,7 @@ const productRepository = new ProductRepositoryPrisma()
 const userRepository = new UserRepositoryPrisma()
 const productUseCase = new ProductUseCase(productRepository, userRepository)
 
-router.get("/posts", jwtValidator, async (req:Request, res:Response) =>{
+router.get("/products", jwtValidator, async (req:Request, res:Response) =>{
     try{
         const {externalId} = req.params
         const products = await productUseCase.getAllProductsByExternalId(externalId)
