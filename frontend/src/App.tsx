@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "./layout/Navbar/Navbar";
 import Home from "./pages/Home/Home";
-import Managment from "./pages/managment/Managment";
+import MyProducts from "./pages/managment/MyProducts/MyProducts";
 import { LayoutAdmin } from "./layout/sidebarComponents";
 
 function App() {
@@ -30,7 +30,7 @@ function App() {
 						path="/managment"
 						element={
 							<LayoutAdmin>
-								<Managment />
+								<MyProducts />
 							</LayoutAdmin>
 						}
 					/>

@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { XIcon, SearchIcon } from "lucide-react";
 import { useT } from "@/assets/i18n";
 
-const Managment = () => {
+const MyProducts = () => {
     const productsService = new ProductService();
     const [products, setProducts] = useState<IProduct[]>([]);
     const [filteredProducts, setFilteredProducts] = useState<IProduct[]>([]);
@@ -108,4 +108,4 @@ const Managment = () => {
     );
 };
 
-export default Managment;
+export default MyProducts;
