@@ -53,13 +53,13 @@ const Navbar = () => {
 					</div>
 				</nav>
 				<div
-					className={`fixed inset-0 bg-gray-800 transition-opacity duration-300 ease-in-out ${
+					className={`fixed inset-0 bg-gray-800 transition-opacity duration-300 ease-in-out z-40 ${
 						isMenuOpen ? "opacity-25" : "opacity-0 pointer-events-none"
 					}`}
 					onClick={toggleMenu}
 				></div>
 				<div
-					className={`fixed top-0 flex flex-col justify-between right-0 bottom-0 w-4/6 max-w-[300px] py-6 px-6 bg-white border-r overflow-y-auto transform transition-transform duration-300 ease-in-out ${
+					className={`fixed top-0 flex flex-col justify-between z-40 right-0 bottom-0 w-4/6 max-w-[300px] py-6 px-6 bg-white border-r overflow-y-auto transform transition-transform duration-300 ease-in-out ${
 						isMenuOpen
 							? "translate-x-0 opacity-100"
 							: "translate-x-full opacity-0"
