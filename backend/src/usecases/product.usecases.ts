@@ -34,6 +34,20 @@ class ProductUseCase {
 		return product;
 	}
 
+	async getAllProductsByExternalId(
+		externalId: string
+	): Promise<IProduct[] | []> {
+		const user = await this.userRepository.findUserByExternalId(externalId);
+		if (!user) {
+			throw new Error(
+				"Usuário não encontrado, por favor, contatar o suporte técnico"
+			);
+		}
+		const products = await this.productRepository.getAllUserProducts(user.id);
+
+		return products;
+	}
+
 	async deleteProductById(id: string, externalId: string): Promise<void> {
 		const product = await this.productRepository.getProductById(id);
 		const user = await this.userRepository.findUserByExternalId(externalId);

@@ -22,4 +22,5 @@ export interface ProductRepository{
     getProductById(id:string):Promise <IProduct | null>
     create(data:IProductCreate):Promise<IProduct>;
     deleteProductById(id:string):Promise<void>;
+    getAllUserProducts(externalId:string) :Promise<IProduct[] | []>
 }

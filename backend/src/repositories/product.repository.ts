@@ -88,6 +88,24 @@ class ProductRepositoryPrisma implements ProductRepository {
 			throw new Error(`Erro ao excluir o produto, ${err}`);
 		}
 	}
+
+	async getAllUserProducts(id: string): Promise<IProduct[] | []> {
+		try {
+			const products = await prisma.product.findMany({
+				where: {
+					userId: id,
+				},
+				include: {
+					assets: true,
+				},
+			});
+			return products;
+		} catch (err) {
+			throw new Error(
+				"Não foi possível encontrar os produtos do usuário, por favor, contatar o suporte técnico"
+			);
+		}
+	}
 }
 
 export { ProductRepositoryPrisma };
