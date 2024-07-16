@@ -4,6 +4,7 @@ import Home from "./pages/Home/Home";
 import MyProducts from "./pages/managment/MyProducts/MyProducts";
 import { LayoutAdmin } from "./layout/sidebarComponents";
 import ProductPage from "./pages/product/ProductPage";
+import CreateProduct from "./pages/managment/CreateProduct/CreateProduct";
 
 function App() {
 	function UserLayout({ children }: any) {
@@ -32,6 +33,14 @@ function App() {
 						element={
 							<LayoutAdmin>
 								<MyProducts />
+							</LayoutAdmin>
+						}
+					/>
+					<Route
+						path="/managment/createProduct"
+						element={
+							<LayoutAdmin>
+								<CreateProduct />
 							</LayoutAdmin>
 						}
 					/>

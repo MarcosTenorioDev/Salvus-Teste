@@ -19,3 +19,10 @@ export interface IProductCard {
 	assets: IAsset[] | [];
 	navigateTo: string;
 }
+
+export interface IProductCreate{
+    name:string,
+    description:string,
+    price:number
+    assets:IAsset[]|[]
+}

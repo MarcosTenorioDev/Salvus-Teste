@@ -5,3 +5,9 @@ export interface IAsset{
     url:string,
     description:string
 }
+
+export interface IAssetProductCreate{
+    type:string,
+    description:string
+    base64Data:string
+}
