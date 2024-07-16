@@ -5,23 +5,44 @@ import ProductService from "@/core/services/product.service";
 import { useEffect, useRef, useState } from "react";
 import herobg from "@/assets/images/hero-bg.webp";
 import { useT } from "@/assets/i18n";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { SearchIcon, XIcon } from "lucide-react";
 
 const Home = () => {
 	const t = useT();
 	const productsService = new ProductService();
 	const [products, setProducts] = useState<IProduct[]>([]);
+	const [filteredProducts, setFilteredProducts] = useState<IProduct[]>([]);
 	const [isLoading, setIsLoading] = useState<boolean>(true);
+	const [globalFilter, setGlobalFilter] = useState<string>("");
 	const productsSectionRef = useRef<HTMLElement>(null);
 
 	useEffect(() => {
 		getAllProducts();
 	}, []);
 
+	useEffect(() => {
+		filterProducts();
+	}, [globalFilter, products]);
+
 	async function getAllProducts() {
 		const response = await productsService.getAllProducts();
 		setProducts(response.data);
-		console.log(response.data);
+		setFilteredProducts(response.data);
 		setIsLoading(false);
+	}
+
+	function filterProducts() {
+		if (globalFilter === "") {
+			setFilteredProducts(products);
+		} else {
+			const lowercasedFilter = globalFilter.toLowerCase();
+			const filtered = products.filter((product) =>
+				product.name.toLowerCase().includes(lowercasedFilter) || product.description.toLowerCase().includes(lowercasedFilter)
+			);
+			setFilteredProducts(filtered);
+		}
 	}
 
 	const scrollToProducts = () => {
@@ -44,6 +65,7 @@ const Home = () => {
 			</div>
 		);
 	};
+
 	return (
 		<div className="max-w-7xl mx-auto px-4">
 			<section className="relative text-white py-10 md:py-20 mt-10 md:mt-10">
@@ -75,21 +97,43 @@ const Home = () => {
 				LoadingComponent()
 			) : (
 				<>
-					<main ref={productsSectionRef} className="flex-wrap grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-7 py-20" >
-						{products.map((product: IProduct) => {
-							return (
-								<ProductCard
-									assets={product.assets}
-									description={product.description}
-									name={product.name}
-									id={product.id}
-									price={product.price}
-									key={product.id}
-									createdAt={product.createdAt}
-									userId={product.userId}
-								/>
-							);
-						})}
+					<div className="relative flex w-full max-w-lg mx-auto items-center space-x-2 mt-10">
+					<SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-500 ml-2" />
+						<Input
+							placeholder="Procure o nome do produto que deseja"
+							value={globalFilter}
+							onChange={(event) => setGlobalFilter(event.target.value)}
+							className="max-w-xl border-primaryw-full py-2 pl-12 pr-16 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+						/>
+						<Button
+							type="button"
+							variant="ghost"
+							size="icon"
+							className={`absolute right-1 top-1/2 -translate-y-1/2 h-7 w-7 text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 ${
+								globalFilter ? "" : "hidden"
+							}`}
+							onClick={() => setGlobalFilter("")}
+						>
+							<XIcon className="h-4 w-4" />
+							<span className="sr-only">Clear</span>
+						</Button>
+					</div>
+					<main
+						ref={productsSectionRef}
+						className="flex-wrap grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-7 py-10"
+					>
+						{filteredProducts.map((product: IProduct) => (
+							<ProductCard
+								assets={product.assets}
+								description={product.description}
+								name={product.name}
+								id={product.id}
+								price={product.price}
+								key={product.id}
+								createdAt={product.createdAt}
+								userId={product.userId}
+							/>
+						))}
 					</main>
 				</>
 			)}
