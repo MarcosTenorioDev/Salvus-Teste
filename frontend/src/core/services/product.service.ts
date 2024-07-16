@@ -11,6 +11,13 @@ class ProductService {
 		);
         return response
 	}
+
+	async getMyProducts(){
+		const response = await this.axios.get(
+			`${this.api}/user/products`
+		);
+        return response
+	}
 }
 
 export default ProductService;

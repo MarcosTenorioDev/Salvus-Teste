@@ -12,7 +12,7 @@ export class LanguageKeysPt {
           searchInputPlaceholder:"Procure o nome do produto que deseja"
         },
         managment:{
-          title:"Área administrativa"
+          title:"Meus produtos"
         }
       },
       components: {
@@ -23,6 +23,11 @@ export class LanguageKeysPt {
             logout:"Sair da conta",
             salesPage:"Página de vendas",
             publishProduct:"Publicar produto"
+        },
+        sidebar:{
+          header:{
+            title:"Área administrativa"
+          }
         }
     },
     };

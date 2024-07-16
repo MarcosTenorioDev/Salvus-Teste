@@ -15,7 +15,7 @@ export default function Header() {
 					to={"/managment"}
 					className="hidden items-center justify-between gap-2 md:flex"
 				>
-					<h1 className="text-lg font-semibold">{t("application.pages.managment.title")}</h1>
+					<h1 className="text-lg font-semibold">{t("application.components.sidebar.header.title")}</h1>
 				</Link>
 				<div className={cn("md:!hidden w-full flex")}>
 					<MobileSidebar />

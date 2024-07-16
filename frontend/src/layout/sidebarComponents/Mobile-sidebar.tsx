@@ -32,7 +32,7 @@ export const MobileSidebar = () => {
 				<SheetTrigger asChild>
 					<div className="w-full flex items-center justify-between gap-2">
 						<MenuIcon className="cursor-pointer" />
-						<h1 className="text-lg font-semibold">{t("application.pages.managment.title")}</h1>
+						<h1 className="text-lg font-semibold">{t("application.components.sidebar.header.title")}</h1>
 					</div>
 				</SheetTrigger>
 				<SheetContent
