@@ -10,12 +10,12 @@ const ProductCard = (props: IProduct) => {
 
 	return (
 		<>
-			<Card
-				className="w-full drop-shadow-md border rounded-lg overflow-hidden bg-white cursor-pointer transition-transform duration-300 transform-gpu hover:scale-110"
-				onClick={() => navigate(`/product/${id}`)}
-			>
+			<Card className="w-full  border rounded-lg overflow-hidden bg-white transition-transform duration-300 transform-gpu hover:scale-110">
 				<CardContent className="p-0 h-48 overflow-hidden">
-					<div className="w-full h-full bg-no-repeat bg-cover bg-center relative">
+					<div
+						className="w-full h-full bg-no-repeat bg-cover bg-center relative cursor-pointer"
+						onClick={() => navigate(`/product/${id}`)}
+					>
 						<img
 							src={
 								assets.length
@@ -28,8 +28,16 @@ const ProductCard = (props: IProduct) => {
 					</div>
 				</CardContent>
 				<CardFooter className="p-4 flex flex-col items-start text-black">
-					<p className="text-lg font-semibold mb-1 truncate">{name}</p>
-					<p className="text-sm text-gray-600 mb-2 truncate w-full">
+					<p
+						className="text-lg font-semibold mb-1 truncate hover:underline cursor-pointer"
+						onClick={() => navigate(`/product/${id}`)}
+					>
+						{name}
+					</p>
+					<p
+						className="text-sm text-gray-600 mb-2 truncate w-full hover:underline cursor-pointer"
+						onClick={() => navigate(`/product/${id}`)}
+					>
 						{description}
 					</p>
 					<p className="text-lg font-medium text-green-600">
