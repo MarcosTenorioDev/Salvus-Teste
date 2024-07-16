@@ -2,7 +2,7 @@ import jwt from 'jsonwebtoken';
 import jwksClient from 'jwks-rsa';
 import { env } from '../env';
 
-export async function jwtValidator(req: any, reply: any) {
+export async function jwtValidator(req: any, reply: any, next:any) {
   try {
 
     const token = req.headers['authorization'];
@@ -37,8 +37,7 @@ export async function jwtValidator(req: any, reply: any) {
     const externalId = decodedToken.sub;
     req.params.externalId = externalId
 
-    return;
-
+    next();
   } catch (error: any) {
     console.error('JWT Verification Error:', error.message);
     reply.status(403).json(error.message);
