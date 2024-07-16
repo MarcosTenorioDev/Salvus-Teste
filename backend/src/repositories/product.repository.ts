@@ -30,6 +30,12 @@ class ProductRepositoryPrisma implements ProductRepository {
 				where: { id },
 				include: {
 					assets: true,
+					user:{
+						select:{
+							firstName:true,
+							lastName:true
+						}
+					}
 				},
 			});
 		} catch (err) {
