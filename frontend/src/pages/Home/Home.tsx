@@ -100,7 +100,7 @@ const Home = () => {
 					<div className="relative flex w-full max-w-lg mx-auto items-center space-x-2 mt-10">
 					<SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-500 ml-2" />
 						<Input
-							placeholder="Procure o nome do produto que deseja"
+							placeholder={t("application.pages.homepage.searchInputPlaceholder")}
 							value={globalFilter}
 							onChange={(event) => setGlobalFilter(event.target.value)}
 							className="max-w-xl border-primaryw-full py-2 pl-12 pr-16 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"

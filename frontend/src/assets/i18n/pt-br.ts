@@ -8,7 +8,8 @@ export class LanguageKeysPt {
         homepage:{
           bannerTitle:"Seja bem vindo(a) ao med+",
           bannerDescription:"Sua fonte confiável de produtos médicos de qualidade. Explore nossa ampla gama de produtos projetados para suas necessidades de saúde e bem-estar",
-          bannerAction:"Comprar agora"
+          bannerAction:"Comprar agora",
+          searchInputPlaceholder:"Procure o nome do produto que deseja"
         },
         managment:{
           title:"Área administrativa"
