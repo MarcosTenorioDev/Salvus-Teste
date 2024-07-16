@@ -13,6 +13,20 @@ export class LanguageKeysPt {
         },
         managment:{
           title:"Meus produtos"
+        },
+        createProduct:{
+          title:"Criar novo produto",
+          imageAlt:"Imagem do produto",
+
+          form:{
+            nameInputPlaceholder:"Insira o nome do produto",
+            nameInputLabel:"Nome do produto",
+            priceInputPlaceholder:"Insira o preço",
+            priceInputLabel:"Preço do produto",
+            descriptionInputPlaceholder:"Insira a descrição do produto",
+            descriptionInputLabel:"Descrição do produto",
+            submit:"Enviar"
+          }
         }
       },
       components: {
@@ -31,6 +45,15 @@ export class LanguageKeysPt {
         }
     },
     };
+
+    public validation = {
+      nameRequired: "Nome do produto é obrigatório",
+      descriptionRequired: "Descrição do produto é obrigatória",
+      priceRequired: "Valor do produto é obrigatório",
+      assetTypeRequired: "Tipo de ativo é obrigatório",
+      assetDescriptionRequired: "Descrição do ativo é obrigatória",
+      assetBase64Required: "Base64 do ativo é obrigatório"
+  };
     //exemplos para alternativas de uso abaixo
     /* public WELCOME_HEADLINE = "Bem vindo ao app";
     

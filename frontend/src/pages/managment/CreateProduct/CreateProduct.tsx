@@ -9,16 +9,17 @@ import {
 import { IAssetProductCreate } from "@/core/interfaces/asset.interface";
 import { IProductCreate } from "@/core/interfaces/product.interface";
 import * as Yup from "yup";
-import {  Form, Formik } from "formik";
+import { Form, Formik } from "formik";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { PlusIcon } from "lucide-react";
 import { Input, Textarea } from "@/components/formInputs/Inputs";
+import { useT } from "@/assets/i18n";
 
 const CreateProduct = () => {
+	const t = useT();
 	const [assets, setAssets] = useState<IAssetProductCreate[]>([]);
-	const [selectedImage, setSelectedImage] =
-		useState<IAssetProductCreate | null>(null);
+	const [selectedImage, setSelectedImage] = useState<IAssetProductCreate | null>(null);
 
 	const initialValues: IProductCreate = {
 		name: "",
@@ -28,21 +29,21 @@ const CreateProduct = () => {
 	};
 
 	const validationSchema = Yup.object({
-		name: Yup.string().required("Nome do produto é obrigatório"),
-		description: Yup.string().required("Descrição do produto é obrigatória"),
-		price: Yup.number().required("Valor do produto é obrigatório"),
+		name: Yup.string().required(t("validation.nameRequired")),
+		description: Yup.string().required(t("validation.descriptionRequired")),
+		price: Yup.number().required(t("validation.priceRequired")),
 		assets: Yup.array().of(
 			Yup.object({
-				type: Yup.string().required("URL da imagem é obrigatória"),
-				description: Yup.string().required("Descrição da imagem é obrigatória"),
-				base64Data: Yup.string().required("Base64 é obrigatório"),
+				type: Yup.string().required(t("validation.assetTypeRequired")),
+				description: Yup.string().required(t("validation.assetDescriptionRequired")),
+				base64Data: Yup.string().required(t("validation.assetBase64Required")),
 			})
 		),
 	});
 
 	const onSubmit = (values: any) => {
 		console.log(values);
-        console.log(assets)
+		console.log(assets);
 	};
 
 	const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -66,7 +67,7 @@ const CreateProduct = () => {
 
 	return (
 		<div className="max-w-7xl mx-auto px-4 py-8">
-			<h1 className="text-3xl font-bold mb-6">Criar Novo Produto</h1>
+			<h1 className="text-3xl font-bold mb-6">{t("application.pages.createProduct.title")}</h1>
 			<div className="lg:flex gap-20">
 				<div className="w-full h-auto md:w-[600px] lg:w-[380px] md:h-[380px] lg:mx-0 mx-auto lg:min-w-[380px] md:mb-14">
 					<Card className="aspect-video lg:aspect-square">
@@ -75,7 +76,7 @@ const CreateProduct = () => {
 								selectedImage?.base64Data ||
 								"https://salvus-image-database.s3.us-east-2.amazonaws.com/default.jpg"
 							}
-							alt="Imagem do produto"
+							alt={t("application.pages.createProduct.imageAlt")}
 							className="w-full h-full object-cover"
 						/>
 					</Card>
@@ -124,29 +125,29 @@ const CreateProduct = () => {
 							<div>
 								<Input
 									control="name"
-									placeholder="insira o nome do produto"
-									label="Nome do produto"
+									placeholder={t("application.pages.createProduct.form.nameInputPlaceholder")}
+									label={t("application.pages.createProduct.form.nameInputLabel")}
 								/>
 							</div>
 
 							<div>
 								<Input
 									control="price"
-									placeholder="insira o preço"
+									placeholder={t("application.pages.createProduct.form.priceInputPlaceholder")}
 									type="number"
-									label="Preço do produto"
+									label={t("application.pages.createProduct.form.priceInputLabel")}
 								/>
 							</div>
 							<div>
 								<Textarea
 									control="description"
-									placeholder="insira a descrição do produto"
-									label="Descrição do produto"
+									placeholder={t("application.pages.createProduct.form.descriptionInputPlaceholder")}
+									label={t("application.pages.createProduct.form.descriptionInputLabel")}
 									rows={10}
 								/>
 							</div>
 
-							<Button type="submit">Publicar produto</Button>
+							<Button type="submit">{t("application.pages.createProduct.form.submit")}</Button>
 						</Form>
 					</Formik>
 				</div>
