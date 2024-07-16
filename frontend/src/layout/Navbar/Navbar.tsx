@@ -95,7 +95,7 @@ const Navbar = () => {
 								</SignOutButton>
 							</div>
 							<p className="mt-4 text-sm font-semibold text-center text-gray-400">
-								<span>© Med+ {new Date().getFullYear()}</span>
+								<span>© {t("application.global.applicationName")} {new Date().getFullYear()}</span>
 							</p>
 						</div>
 					</div>

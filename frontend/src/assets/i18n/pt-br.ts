@@ -1,7 +1,7 @@
 export class LanguageKeysPt {
     public application = {
       global: {
-        applicationName: "Salvus",
+        applicationName: "Med +",
         currencyPrefix:"R$"
       },
       pages:{
@@ -9,6 +9,9 @@ export class LanguageKeysPt {
           bannerTitle:"Seja bem vindo(a) ao med+",
           bannerDescription:"Sua fonte confiável de produtos médicos de qualidade. Explore nossa ampla gama de produtos projetados para suas necessidades de saúde e bem-estar",
           bannerAction:"Comprar agora"
+        },
+        managment:{
+          title:"Área administrativa"
         }
       },
       components: {
@@ -16,7 +19,9 @@ export class LanguageKeysPt {
             login:"Login", 
             register: "Cadastrar-se",
             myProducts:"Meus produtos",
-            logout:"Sair da conta"
+            logout:"Sair da conta",
+            salesPage:"Página de vendas",
+            publishProduct:"Publicar produto"
         }
     },
     };
