@@ -241,7 +241,7 @@ const CreateProduct = () => {
 				LoadingComponent()
 			) : (
 				<>
-					<div className="flex justify-between">
+					<div className="flex flex-col lg:flex-row justify-between items-center">
 						<h1 className="text-3xl font-bold mb-6">
 							{id
 								? "Editar o meu produto"
@@ -249,7 +249,7 @@ const CreateProduct = () => {
 							{}
 						</h1>
 						{id ? (
-							<div className="flex gap-6">
+							<div className="flex gap-6 mb-4">
 								<AlertDialog>
 									<Button asChild variant={"destructive"} disabled={isDeleting}>
 										<AlertDialogTrigger> Excluir produto</AlertDialogTrigger>
