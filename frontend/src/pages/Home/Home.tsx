@@ -8,6 +8,14 @@ import { useT } from "@/assets/i18n";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { SearchIcon, XIcon } from "lucide-react";
+import {
+	Pagination,
+	PaginationContent,
+	PaginationItem,
+	PaginationLink,
+	PaginationNext,
+	PaginationPrevious,
+} from "@/components/ui/pagination";
 
 const Home = () => {
 	const t = useT();
@@ -16,6 +24,8 @@ const Home = () => {
 	const [filteredProducts, setFilteredProducts] = useState<IProduct[]>([]);
 	const [isLoading, setIsLoading] = useState<boolean>(true);
 	const [globalFilter, setGlobalFilter] = useState<string>("");
+	const [currentPage, setCurrentPage] = useState<number>(1);
+	const productsPerPage = 8;
 	const productsSectionRef = useRef<HTMLElement>(null);
 
 	useEffect(() => {
@@ -24,25 +34,35 @@ const Home = () => {
 
 	useEffect(() => {
 		filterProducts();
-	}, [globalFilter, products]);
+	}, [globalFilter, products, currentPage]);
 
 	async function getAllProducts() {
 		const response = await productsService.getAllProducts();
 		setProducts(response.data);
-		setFilteredProducts(response.data);
 		setIsLoading(false);
+		filterProducts(response.data);
 	}
 
-	function filterProducts() {
-		if (globalFilter === "") {
-			setFilteredProducts(products);
-		} else {
+	function filterProducts(allProducts = products) {
+		let filtered = allProducts;
+
+		if (globalFilter !== "") {
 			const lowercasedFilter = globalFilter.toLowerCase();
-			const filtered = products.filter((product) =>
-				product.name.toLowerCase().includes(lowercasedFilter) || product.description.toLowerCase().includes(lowercasedFilter)
+			filtered = allProducts.filter(
+				(product) =>
+					product.name.toLowerCase().includes(lowercasedFilter) ||
+					product.description.toLowerCase().includes(lowercasedFilter)
 			);
-			setFilteredProducts(filtered);
 		}
+
+		const indexOfLastProduct = currentPage * productsPerPage;
+		const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+		const currentProducts = filtered.slice(
+			indexOfFirstProduct,
+			indexOfLastProduct
+		);
+
+		setFilteredProducts(currentProducts);
 	}
 
 	const scrollToProducts = () => {
@@ -64,6 +84,10 @@ const Home = () => {
 				<Skeleton className="w-full h-60 bg-gray-300 hidden sm:block" />
 			</div>
 		);
+	};
+
+	const handlePageChange = (pageNumber: number) => {
+		setCurrentPage(pageNumber);
 	};
 
 	return (
@@ -98,12 +122,14 @@ const Home = () => {
 			) : (
 				<>
 					<div className="relative flex w-full max-w-lg mx-auto items-center space-x-2 mt-10">
-					<SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-500 ml-2" />
+						<SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-500 ml-2" />
 						<Input
-							placeholder={t("application.pages.homepage.searchInputPlaceholder")}
+							placeholder={t(
+								"application.pages.homepage.searchInputPlaceholder"
+							)}
 							value={globalFilter}
 							onChange={(event) => setGlobalFilter(event.target.value)}
-							className="max-w-xl border-primaryw-full py-2 pl-12 pr-16 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+							className="max-w-xl border-primary w-full py-2 pl-12 pr-16 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
 						/>
 						<Button
 							type="button"
@@ -134,6 +160,38 @@ const Home = () => {
 							/>
 						))}
 					</main>
+					<Pagination className="mb-14">
+						<PaginationContent>
+							<PaginationItem>
+								<PaginationPrevious
+									onClick={() => handlePageChange(currentPage - 1)}
+									disabled={currentPage === 1}
+									className={currentPage === Math.ceil(products.length / productsPerPage) ? "": "cursor-pointer"}
+								/>
+							</PaginationItem>
+							{Array.from({
+								length: Math.ceil(products.length / productsPerPage),
+							}).map((_, index) => (
+								<PaginationItem key={index}>
+									<PaginationLink
+										onClick={() => handlePageChange(index + 1)}
+										className={currentPage === index + 1 ? "active border-primary bg-primary/50 cursor-pointer" : "cursor-pointer"}
+									>
+										{index + 1}
+									</PaginationLink>
+								</PaginationItem>
+							))}
+							<PaginationItem>
+								<PaginationNext
+									onClick={() => handlePageChange(currentPage + 1)}
+									className={currentPage === Math.ceil(products.length / productsPerPage) ? "": "cursor-pointer"}
+									disabled={
+										currentPage === Math.ceil(products.length / productsPerPage)
+									}
+								/>
+							</PaginationItem>
+						</PaginationContent>
+					</Pagination>
 				</>
 			)}
 		</div>
