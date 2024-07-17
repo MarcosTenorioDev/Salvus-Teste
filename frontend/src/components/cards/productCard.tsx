@@ -29,7 +29,7 @@ const ProductCard = (props: IProductCard) => {
 				</CardContent>
 				<CardFooter className="p-4 flex flex-col items-start text-black">
 					<p
-						className="text-lg font-semibold mb-1 truncate hover:underline cursor-pointer"
+						className="text-lg font-semibold mb-1 truncate w-full hover:underline cursor-pointer"
 						onClick={() => navigate(navigateTo)}
 					>
 						{name}
