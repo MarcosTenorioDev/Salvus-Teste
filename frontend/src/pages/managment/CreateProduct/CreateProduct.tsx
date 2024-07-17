@@ -281,9 +281,9 @@ const CreateProduct = () => {
 								<Button
 									variant={"secondary"}
 									className="flex justify-center items-center gap-4 border-[1px] border-transparent hover:border-primary hover:text-primary "
-									onClick={() => navigate('/managment/createProduct')}
+									onClick={() => navigate("/managment/createProduct")}
 								>
-									Criar novo <PlusIcon/>
+									Criar novo <PlusIcon />
 								</Button>
 							</div>
 						) : (
@@ -339,6 +339,7 @@ const CreateProduct = () => {
 											type="file"
 											id="file-upload"
 											className="hidden"
+											accept="image/*"
 											onChange={handleFileChange}
 										/>
 									</CarouselItem>
