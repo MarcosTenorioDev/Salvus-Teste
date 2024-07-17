@@ -63,7 +63,9 @@ router.post(
 				(file): IAssetCreate => {
 					return {
 						type: file.mimetype,
-						description: `asset-${new Date().toISOString()}.${randomUUID()}.${file.mimetype}`,
+						description: `asset-${new Date().toISOString()}.${randomUUID()}.${
+							file.mimetype
+						}`,
 						path: file.path,
 					};
 				}
@@ -76,6 +78,73 @@ router.post(
 				assets: assets,
 			});
 			res.status(201).json(product);
+		} catch (err) {
+			res.status(400).json(`${err}`);
+		}
+	}
+);
+
+router.put(
+	"/:id",
+	jwtValidator,
+	upload.array("assets"),
+	async (req: Request, res: Response) => {
+		const { description, name, price, deleteAssetsIds} = req.body;
+		const { externalId, id } = req.params;
+
+		try {
+			const user = await userUseCase.findByExternalId(externalId);
+			if (!user) {
+				(req.files as Express.Multer.File[]).map((file) => {
+					fs.unlinkSync(file.path);
+				});
+				res.status(403).json("Operação não permitida");
+				return;
+			}
+			const product = await productUseCase.getProductById(id);
+			if(!product){
+				(req.files as Express.Multer.File[]).map((file) => {
+					fs.unlinkSync(file.path);
+				});
+				res.status(404).json("Produto não encontrado");
+				return;
+			}
+			if(product.userId != user.id){
+				(req.files as Express.Multer.File[]).map((file) => {
+					fs.unlinkSync(file.path);
+				});
+				res.status(403).json("Operação não permitida");
+				return;
+			}
+			const numericPrice = parseFloat(price);
+			if (isNaN(numericPrice)) {
+				(req.files as Express.Multer.File[]).map((file) => {
+					fs.unlinkSync(file.path);
+				});
+				throw new Error("O campo 'price' deve ser um número válido.");
+			}
+			const parsedDeleteAssetIds : string[] = JSON.parse(deleteAssetsIds)
+			const assets = (req.files as Express.Multer.File[]).map(
+				(file): IAssetCreate => {
+					return {
+						type: file.mimetype,
+						description: `asset-${new Date().toISOString()}.${randomUUID()}.${
+							file.mimetype
+						}`,
+						path: file.path,
+					};
+				}
+			);
+			const productUpdate = await productUseCase.update({
+				id,
+				description,
+				name,
+				deleteAssetsIds: parsedDeleteAssetIds,
+				price: numericPrice,
+				assets: assets,
+			});
+			
+			res.status(201).json(productUpdate);
 		} catch (err) {
 			res.status(400).json(`${err}`);
 		}

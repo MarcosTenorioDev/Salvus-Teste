@@ -3,6 +3,7 @@ import {
 	ProductRepository,
 	IProduct,
 	IProductCreate,
+	IProductUpdate,
 } from "../interfaces/product.interface";
 import { UserRepository } from "../interfaces/user.interface";
 
@@ -64,6 +65,11 @@ class ProductUseCase {
 			throw new Error("Operação não permitida");
 		}
 		return await this.productRepository.deleteProductById(id);
+	}
+
+	async update(data: IProductUpdate): Promise<IProduct> {
+		const product = await this.productRepository.update(data);
+		return product;
 	}
 }
 

@@ -3,6 +3,7 @@ import { IAsset, IAssetCreate } from "../interfaces/asset.interface";
 import {
 	IProduct,
 	IProductCreate,
+	IProductUpdate,
 	ProductRepository,
 } from "../interfaces/product.interface";
 import { AssetUseCase } from "../usecases/assets.usecases";
@@ -30,12 +31,12 @@ class ProductRepositoryPrisma implements ProductRepository {
 				where: { id },
 				include: {
 					assets: true,
-					user:{
-						select:{
-							firstName:true,
-							lastName:true
-						}
-					}
+					user: {
+						select: {
+							firstName: true,
+							lastName: true,
+						},
+					},
 				},
 			});
 		} catch (err) {
@@ -111,6 +112,55 @@ class ProductRepositoryPrisma implements ProductRepository {
 				"Não foi possível encontrar os produtos do usuário, por favor, contatar o suporte técnico"
 			);
 		}
+	}
+
+	async update(data: IProductUpdate): Promise<IProduct> {
+		const product = await prisma.product.update({
+			where: {
+				id: data.id,
+			},
+			data: {
+				name: data.name,
+				description: data.description,
+				price: data.price,
+			},
+			include: {
+				assets: true,
+			},
+		});
+
+		if (data.deleteAssetsIds.length) {
+			await prisma.asset.deleteMany({
+				where: {
+					id: {
+						in: data.deleteAssetsIds,
+					},
+				},
+			});
+		}
+
+		const assetsWithProductId = data.assets?.map((asset: IAssetCreate) => ({
+			type: asset.type,
+			description: asset.description,
+			productId: product.id,
+			path: asset.path,
+		}));
+
+		const assetRepository = new AssetRepositoryPrisma();
+		const userRepository = new UserRepositoryPrisma();
+		const assetUseCase = new AssetUseCase(
+			assetRepository,
+			this,
+			userRepository
+		);
+		const createdAssets: IAsset[] | [] = assetsWithProductId
+			? await assetUseCase.createAsset(assetsWithProductId)
+			: [];
+
+		return {
+			...product,
+			assets: [...createdAssets, ...product.assets],
+		};
 	}
 }
 
