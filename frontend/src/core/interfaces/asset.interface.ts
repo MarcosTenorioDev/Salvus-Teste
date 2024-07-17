@@ -9,5 +9,5 @@ export interface IAsset{
 export interface IAssetProductCreate{
     type:string,
     description:string
-    base64Data:string
+    file:File
 }

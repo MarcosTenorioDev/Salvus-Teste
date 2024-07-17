@@ -3,6 +3,7 @@ import axios, {
 	AxiosResponse,
 	InternalAxiosRequestConfig,
 } from "axios";
+import ToastService from "../services/toast.service";
 
 export class AxiosInterceptor {
 	private axiosInstance: AxiosInstance;
@@ -47,7 +48,13 @@ export class AxiosInterceptor {
 	}
 
 	private handleResponseError(error: any) {
-		console.log("handle response error");
+		switch (error.response.status) {
+			default:
+				ToastService.showError(
+					"Houve um problema no sistema, por favor, contatar o suporte técnico"
+				);
+				break;
+		}
 		Promise.reject(error);
 	}
 

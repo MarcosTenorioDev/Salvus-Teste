@@ -15,11 +15,16 @@ import { Button } from "@/components/ui/button";
 import { PlusIcon } from "lucide-react";
 import { Input, Textarea } from "@/components/formInputs/Inputs";
 import { useT } from "@/assets/i18n";
+import ProductService from "@/core/services/product.service";
+import ToastService from "@/core/services/toast.service";
 
 const CreateProduct = () => {
 	const t = useT();
+	const productService = new ProductService();
+	const [isSending, setIsSending] = useState<boolean>(false);
 	const [assets, setAssets] = useState<IAssetProductCreate[]>([]);
-	const [selectedImage, setSelectedImage] = useState<IAssetProductCreate | null>(null);
+	const [selectedImage, setSelectedImage] =
+		useState<IAssetProductCreate | null>(null);
 
 	const initialValues: IProductCreate = {
 		name: "",
@@ -35,46 +40,62 @@ const CreateProduct = () => {
 		assets: Yup.array().of(
 			Yup.object({
 				type: Yup.string().required(t("validation.assetTypeRequired")),
-				description: Yup.string().required(t("validation.assetDescriptionRequired")),
+				description: Yup.string().required(
+					t("validation.assetDescriptionRequired")
+				),
 				base64Data: Yup.string().required(t("validation.assetBase64Required")),
 			})
 		),
 	});
 
-	const onSubmit = (values: any) => {
-		console.log(values);
-		console.log(assets);
+	const onSubmit = async (values: IProductCreate) => {
+		setIsSending(true);
+		const formData = new FormData();
+		formData.append("name", values.name);
+		formData.append("description", values.description);
+		formData.append("price", String(values.price));
+
+		assets.forEach((asset) => {
+			formData.append(`assets`, asset.file);
+		});
+
+		try {
+			const response = await productService.postProduct(formData);
+			if (response) {
+				ToastService.showSuccess("Produto criado com sucesso");
+			}
+		} catch (err) {
+			ToastService.showError("Deu erro");
+		} finally {
+			setIsSending(false);
+		}
 	};
 
 	const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-		const file = event.target.files?.[0];
-		if (file) {
-			const reader = new FileReader();
-			reader.onloadend = () => {
-				if (reader.result) {
-					const base64Data = reader.result.toString();
-					const newAsset: IAssetProductCreate = {
-						type: "image",
-						description: file.name,
-						base64Data: base64Data,
-					};
-					setAssets([...assets, newAsset]);
-				}
-			};
-			reader.readAsDataURL(file);
+		const files = event.target.files;
+		if (files) {
+			const newAssets = Array.from(files).map((file) => ({
+				type: "image",
+				description: file.name,
+				file: file,
+			}));
+			setAssets([...assets, ...newAssets]);
 		}
 	};
 
 	return (
 		<div className="max-w-7xl mx-auto px-4 py-8">
-			<h1 className="text-3xl font-bold mb-6">{t("application.pages.createProduct.title")}</h1>
+			<h1 className="text-3xl font-bold mb-6">
+				{t("application.pages.createProduct.title")}
+			</h1>
 			<div className="lg:flex gap-20">
 				<div className="w-full h-auto md:w-[600px] lg:w-[380px] md:h-[380px] lg:mx-0 mx-auto lg:min-w-[380px] md:mb-14">
 					<Card className="aspect-video lg:aspect-square">
 						<img
 							src={
-								selectedImage?.base64Data ||
-								"https://salvus-image-database.s3.us-east-2.amazonaws.com/default.jpg"
+								selectedImage?.file
+									? URL.createObjectURL(selectedImage.file)
+									: "https://salvus-image-database.s3.us-east-2.amazonaws.com/default.jpg"
 							}
 							alt={t("application.pages.createProduct.imageAlt")}
 							className="w-full h-full object-cover"
@@ -90,7 +111,7 @@ const CreateProduct = () => {
 							{assets.map((asset: IAssetProductCreate) => (
 								<CarouselItem className="basis-auto" key={asset.description}>
 									<img
-										src={asset.base64Data}
+										src={URL.createObjectURL(asset.file)}
 										alt={asset.description}
 										className={`rounded-lg cursor-pointer w-28 aspect-video object-contain hover:border hover:border-primary border`}
 										onMouseEnter={() => setSelectedImage(asset)}
@@ -125,29 +146,45 @@ const CreateProduct = () => {
 							<div>
 								<Input
 									control="name"
-									placeholder={t("application.pages.createProduct.form.nameInputPlaceholder")}
-									label={t("application.pages.createProduct.form.nameInputLabel")}
+									placeholder={t(
+										"application.pages.createProduct.form.nameInputPlaceholder"
+									)}
+									label={t(
+										"application.pages.createProduct.form.nameInputLabel"
+									)}
 								/>
 							</div>
 
 							<div>
 								<Input
 									control="price"
-									placeholder={t("application.pages.createProduct.form.priceInputPlaceholder")}
+									placeholder={t(
+										"application.pages.createProduct.form.priceInputPlaceholder"
+									)}
 									type="number"
-									label={t("application.pages.createProduct.form.priceInputLabel")}
+									label={t(
+										"application.pages.createProduct.form.priceInputLabel"
+									)}
 								/>
 							</div>
 							<div>
 								<Textarea
 									control="description"
-									placeholder={t("application.pages.createProduct.form.descriptionInputPlaceholder")}
-									label={t("application.pages.createProduct.form.descriptionInputLabel")}
+									placeholder={t(
+										"application.pages.createProduct.form.descriptionInputPlaceholder"
+									)}
+									label={t(
+										"application.pages.createProduct.form.descriptionInputLabel"
+									)}
 									rows={10}
 								/>
 							</div>
 
-							<Button type="submit">{t("application.pages.createProduct.form.submit")}</Button>
+							<Button type="submit" disabled={isSending}>
+								{isSending
+									? "Enviando..."
+									: t("application.pages.createProduct.form.submit")}
+							</Button>
 						</Form>
 					</Formik>
 				</div>

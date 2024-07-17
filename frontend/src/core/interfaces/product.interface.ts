@@ -1,4 +1,4 @@
-import { IAsset } from "./asset.interface";
+import { IAsset, IAssetProductCreate } from "./asset.interface";
 
 export interface IProduct {
 	id: string;
@@ -24,5 +24,5 @@ export interface IProductCreate{
     name:string,
     description:string,
     price:number
-    assets:IAsset[]|[]
+    assets:IAssetProductCreate[]|[]
 }
