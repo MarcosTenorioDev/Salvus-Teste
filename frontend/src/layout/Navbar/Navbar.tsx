@@ -140,43 +140,47 @@ const Navbar = () => {
 					</div>
 				</nav>
 				<div
-					className={`fixed inset-0 bg-gray-800 transition-opacity duration-300 ease-in-out ${
+					className={`fixed inset-0 bg-gray-800 transition-opacity duration-300 ease-in-out z-[9] ${
 						isMenuOpen ? "opacity-25" : "opacity-0 pointer-events-none"
 					}`}
 					onClick={toggleMenu}
 				></div>
 				<div
-					className={`fixed top-0 right-0 bottom-0 w-4/6 max-w-[300px] py-6 px-6 bg-white border-r overflow-y-auto transform transition-transform duration-300 ease-in-out ${
+					className={`fixed top-0 flex flex-col justify-between z-40 right-0 bottom-0 w-4/6 max-w-[300px] py-6 px-6 bg-white border-r overflow-y-auto transform transition-transform duration-300 ease-in-out ${
 						isMenuOpen
 							? "translate-x-0 opacity-100"
 							: "translate-x-full opacity-0"
 					}`}
 				>
-					<div className="flex items-center justify-between w-full font-primary">
-						{t("application.global.applicationName")}
-						<Cross2Icon
-							className="h-10 w-10 text-red-600 font-bold cursor-pointer"
-							onClick={toggleMenu}
-						/>
-					</div>
-					<nav className="flex flex-col">
-						<div className="flex flex-col gap-3 mt-8">
-							<div className="text-white font-primary">
-								<SignInButton mode="modal">
-									<div className="h-9 px-4 cursor-pointer w-full py-2 bg-primary text-white shadow-sm hover:bg-secondary/80 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50">
-										{t("application.components.navbar.login")}
-									</div>
-								</SignInButton>
-							</div>
-							<div className="text-white font-primary">
-								<SignUpButton mode="modal">
-									<div className="h-9 cursor-pointer px-4 w-full py-2 bg-primary text-white shadow-sm hover:bg-secondary/80 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50">
-										{t("application.components.navbar.register")}
-									</div>
-								</SignUpButton>
-							</div>
+					<div>
+						<div className="flex items-center justify-between w-full font-primary">
+							{t("application.global.applicationName")}
+							<Cross2Icon
+								className="h-10 w-10 text-red-600 font-bold cursor-pointer"
+								onClick={toggleMenu}
+							/>
 						</div>
-					</nav>
+						<div className="pb-12 flex flex-col justify-between">
+							<nav className="flex flex-col">
+								<div className="flex flex-col gap-3 mt-8">
+									<div className="text-white font-primary">
+										<SignInButton mode="modal">
+											<div className="h-9 px-4 cursor-pointer w-full py-2 bg-primary text-white shadow-sm hover:bg-secondary/80 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50">
+												{t("application.components.navbar.login")}
+											</div>
+										</SignInButton>
+									</div>
+									<div className="text-white font-primary">
+										<SignUpButton mode="modal">
+											<div className="h-9 cursor-pointer px-4 w-full py-2 bg-primary text-white shadow-sm hover:bg-secondary/80 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50">
+												{t("application.components.navbar.register")}
+											</div>
+										</SignUpButton>
+									</div>
+								</div>
+							</nav>
+						</div>
+					</div>
 					<div className="mt-auto">
 						<p className="text-sm font-semibold text-center text-gray-400">
 							<span>© Med+ {new Date().getFullYear()}</span>
