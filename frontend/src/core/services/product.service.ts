@@ -29,6 +29,11 @@ class ProductService {
 		const result = await this.axios.delete(`${this.api}/products/${id}`)
 		return result
 	}
+
+	async updateProduct(id:string, payload:FormData){
+		const result = await this.axios.put(`${this.api}/products/${id}`, payload)
+		return result
+	}
 }
 
 export default ProductService;
