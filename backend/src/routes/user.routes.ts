@@ -15,7 +15,7 @@ router.get("/products", jwtValidator, async (req:Request, res:Response) =>{
         const products = await productUseCase.getAllProductsByExternalId(externalId)
         res.status(200).json(products);
     }catch(err){
-        res.status(400).json(err);
+        res.status(400).json(`${err}`);
     }
 })
 

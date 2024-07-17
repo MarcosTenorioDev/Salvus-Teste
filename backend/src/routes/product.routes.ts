@@ -22,7 +22,7 @@ router.get("/", async (req: Request, res: Response) => {
 		const products = await productUseCase.getAllProducts();
 		res.status(200).json(products);
 	} catch (error) {
-		res.status(404).json(error);
+		res.status(404).json(`${error}`);
 	}
 });
 
@@ -32,7 +32,7 @@ router.get("/:id", async (req: Request, res: Response) => {
 		const product = await productUseCase.getProductById(id);
 		res.status(200).json(product);
 	} catch (error) {
-		res.status(404).json(error);
+		res.status(404).json(`${error}`);
 	}
 });
 
@@ -144,7 +144,7 @@ router.put(
 				assets: assets,
 			});
 			
-			res.status(201).json(productUpdate);
+			res.status(200).json(productUpdate);
 		} catch (err) {
 			res.status(400).json(`${err}`);
 		}
@@ -157,7 +157,7 @@ router.delete("/:id", jwtValidator, async (req: Request, res: Response) => {
 		await productUseCase.deleteProductById(id, externalId);
 		res.status(204).json("Produto excluído com sucesso");
 	} catch (err) {
-		res.status(404).send(err);
+		res.status(404).send(`${err}`);
 	}
 });
 

@@ -56,7 +56,7 @@ router.delete("/:id",
 			res.status(204).send("Asset excluído com sucesso");
 		} catch (error) {
 			console.error(error);
-			res.status(500).send("Error uploading file.");
+			res.status(500).send(`Error uploading file. ${error}`);
 		}
 	});
 
