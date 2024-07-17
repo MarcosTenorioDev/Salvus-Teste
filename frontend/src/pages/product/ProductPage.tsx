@@ -102,7 +102,7 @@ const ProductPage = () => {
 									"https://salvus-image-database.s3.us-east-2.amazonaws.com/default.jpg"
 								}
 								alt="Imagem do produto"
-								className="w-full h-full object-contain"
+								className="w-full h-full object-cover"
 							/>
 						</Card>
 						<Carousel
