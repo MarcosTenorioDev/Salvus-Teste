@@ -3,14 +3,18 @@ import { ProductRepositoryPrisma } from "../repositories/product.repository";
 import { ProductUseCase } from "../usecases/product.usecases";
 import { jwtValidator } from "../middlewares/auth.middlewares";
 import { UserRepositoryPrisma } from "../repositories/user.repository";
-import { IProductCreate } from "../interfaces/product.interface";
 import { UserUseCase } from "../usecases/user.usecases";
+import multer from "multer";
+import { IAssetCreate } from "../interfaces/asset.interface";
+import fs from "fs";
 
 const router = Router();
 const userRepository = new UserRepositoryPrisma();
 const userUseCase = new UserUseCase(userRepository);
 const productRepository = new ProductRepositoryPrisma();
 const productUseCase = new ProductUseCase(productRepository, userRepository);
+
+const upload = multer({ dest: "tmp/" });
 
 router.get("/", async (req: Request, res: Response) => {
 	try {
@@ -34,40 +38,56 @@ router.get("/:id", async (req: Request, res: Response) => {
 router.post(
 	"/",
 	jwtValidator,
-	async (
-		req: Request<{ body: IProductCreate; externalId: string }>,
-		res: Response
-	) => {
-		const {description, name, price, assets } =
-			req.body;
+	upload.array("assets"),
+	async (req: Request<{ externalId: string }>, res: Response) => {
+		const { description, name, price } = req.body;
 		const { externalId } = req.params;
 		try {
 			const user = await userUseCase.findByExternalId(externalId);
-			if(!user){
+			if (!user) {
+				(req.files as Express.Multer.File[]).map((file) => {
+					fs.unlinkSync(file.path);
+				});
 				res.status(403).json("Operação não permitida");
-				return
+				return;
 			}
+			const numericPrice = parseFloat(price);
+			if (isNaN(numericPrice)) {
+				(req.files as Express.Multer.File[]).map((file) => {
+					fs.unlinkSync(file.path);
+				});
+				throw new Error("O campo 'price' deve ser um número válido.");
+			}
+			const assets = (req.files as Express.Multer.File[]).map(
+				(file): IAssetCreate => {
+					return {
+						type: file.mimetype,
+						description: `asset-${new Date().toISOString()}.${file.mimetype}`,
+						path: file.path,
+					};
+				}
+			);
 			const product = await productUseCase.create({
 				description,
 				name,
-				price,
+				price: numericPrice,
 				userId: user.id,
-				assets,
+				assets: assets,
 			});
 			res.status(201).json(product);
 		} catch (err) {
-			res.status(400).json(err)
+			res.status(400).json(`${err}`);
 		}
 	}
 );
 
 router.delete("/:id", jwtValidator, async (req: Request, res: Response) => {
 	const { externalId, id } = req.params;
-	try{
+	try {
 		await productUseCase.deleteProductById(id, externalId);
-		res.status(204).json("Produto excluído com sucesso")
-	}catch(err){
-		res.status(404).send(err)
+		res.status(204).json("Produto excluído com sucesso");
+	} catch (err) {
+		res.status(404).send(err);
 	}
 });
 

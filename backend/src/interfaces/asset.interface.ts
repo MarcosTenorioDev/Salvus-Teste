@@ -6,10 +6,15 @@ export interface IAsset {
 	description: string | null;
 }
 export interface IAssetCreate {
-	productId: string
 	type: string;
-	base64Data: string;
-	description: string | null;
+	path: string;
+	description: string |null;
+}
+export interface IAssetCreateProduct{
+	type: string;
+	path: string;
+	description: string |null;
+	productId:string
 }
 
 export interface IAssetCreatePrisma {

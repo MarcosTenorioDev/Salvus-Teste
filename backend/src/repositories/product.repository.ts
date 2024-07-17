@@ -64,10 +64,10 @@ class ProductRepositoryPrisma implements ProductRepository {
 				userRepository
 			);
 			const assetsWithProductId = data.assets?.map((asset: IAssetCreate) => ({
-				base64Data: asset.base64Data,
+				type: asset.type,
 				description: asset.description,
 				productId: product.id,
-				type: asset.type,
+				path: asset.path,
 			}));
 			const createdAssets: IAsset[] | [] = assetsWithProductId
 				? await assetUseCase.createAsset(assetsWithProductId)
