@@ -12,7 +12,7 @@ import * as Yup from "yup";
 import { Form, Formik } from "formik";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { PlusIcon } from "lucide-react";
+import { PlusIcon, XIcon } from "lucide-react";
 import { Input, Textarea } from "@/components/formInputs/Inputs";
 import { useT } from "@/assets/i18n";
 import ProductService from "@/core/services/product.service";
@@ -80,17 +80,27 @@ const CreateProduct = () => {
 				file: file,
 			}));
 			setAssets([...assets, ...newAssets]);
+			setSelectedImage({
+				type: "image",
+				description: files[0].name,
+				file: files[0],
+			});
 		}
 	};
 
+	const deleteAsset = (index: number) => {
+		setAssets(assets.filter((_, i) => i !== index));
+		const newAsset = assets.find((_, i) => i != index);
+		setSelectedImage(newAsset ? newAsset : null);
+	};
 	return (
 		<div className="max-w-7xl mx-auto px-4 py-8">
 			<h1 className="text-3xl font-bold mb-6">
 				{t("application.pages.createProduct.title")}
 			</h1>
 			<div className="lg:flex gap-20">
-				<div className="w-full h-auto md:w-[600px] lg:w-[380px] md:h-[380px] lg:mx-0 mx-auto lg:min-w-[380px] md:mb-14">
-					<Card className="aspect-video lg:aspect-square">
+				<div className="w-full h-auto lg:w-[380px] md:h-[380px] lg:mx-0 mx-auto lg:min-w-[380px] md:mb-14">
+					<Card className="aspect-video lg:aspect-square overflow-hidden object-cover">
 						<img
 							src={
 								selectedImage?.file
@@ -108,14 +118,25 @@ const CreateProduct = () => {
 						}}
 					>
 						<CarouselContent className="p-4">
-							{assets.map((asset: IAssetProductCreate) => (
-								<CarouselItem className="basis-auto" key={asset.description}>
+							{assets.map((asset: IAssetProductCreate, index: number) => (
+								<CarouselItem
+									className="basis-auto relative"
+									key={asset.description}
+								>
 									<img
 										src={URL.createObjectURL(asset.file)}
 										alt={asset.description}
-										className={`rounded-lg cursor-pointer w-28 aspect-video object-contain hover:border hover:border-primary border`}
+										className={`rounded-lg cursor-pointer w-28 aspect-video object-cover hover:border hover:border-primary border`}
 										onMouseEnter={() => setSelectedImage(asset)}
 									/>
+									<Button
+										className="h-auto p-0 rounded-full bg-muted-foreground/70 hover:bg-muted-foreground/30 absolute top-1 right-1"
+										onClick={() => {
+											deleteAsset(index);
+										}}
+									>
+										<XIcon />
+									</Button>
 								</CarouselItem>
 							))}
 							<CarouselItem className="basis-auto">
