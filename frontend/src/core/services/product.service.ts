@@ -24,6 +24,11 @@ class ProductService {
 		const product = await this.axios.get(`${this.api}/products/${id}`);
 		return product;
 	}
+
+	async deleteProductById(id:string){
+		const result = await this.axios.delete(`${this.api}/products/${id}`)
+		return result
+	}
 }
 
 export default ProductService;

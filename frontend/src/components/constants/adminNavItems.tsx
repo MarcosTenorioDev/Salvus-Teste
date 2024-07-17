@@ -9,10 +9,11 @@ export const NavItems: NavItem[] = [
       color: "text-primary",
     },  
     {
-      title: "Publicar produto",
+      title: "Publicar / Editar produto",
       icon: PackagePlus,
       href: "/managment/createProduct",
       color: "text-primary",
+      routerTags: ['/managment/product']
     }, 
 ];
 

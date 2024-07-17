@@ -52,6 +52,14 @@ function App() {
 							</UserLayout>
 						}
 					/>
+					<Route
+						path="managment/product/:id"
+						element={
+							<LayoutAdmin>
+								<CreateProduct />
+							</LayoutAdmin>
+						}
+					/>
 				</Routes>
 			</BrowserRouter>
 		</>

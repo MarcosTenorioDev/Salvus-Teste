@@ -12,7 +12,7 @@ import {
 } from "@/layout/sidebarComponents/Subnav-accordion";
 import { useEffect, useState } from "react";
 import { ChevronDownIcon } from "@radix-ui/react-icons";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 interface SideNavProps {
     items: NavItem[];
@@ -35,6 +35,16 @@ export function SideNav({ items, setOpen, className }: SideNavProps) {
         }
     }, [isOpen]);
 
+    const isRouteSelected = (item: NavItem): boolean => {
+      if (item.routerTags) {
+        const params = useParams();
+        const id = params.id;
+        return item.routerTags.some((tag: string) => path === `${tag}/${id}`) || path === item.href;
+      }
+  
+      return path === item.href;
+    };
+    
     return (
         <nav className="space-y-2">
       {items.map((item) =>
@@ -109,7 +119,7 @@ export function SideNav({ items, setOpen, className }: SideNavProps) {
             className={cn(
               buttonVariants({ variant: 'ghost' }),
               'group relative flex h-12 justify-start',
-              path === item.href && 'bg-muted font-bold hover:bg-muted',
+              isRouteSelected(item) && 'bg-muted font-bold hover:bg-muted',
             )}
           >
             <item.icon className={cn('h-5 w-5', item.color)} />
