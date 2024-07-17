@@ -45,7 +45,7 @@ router.post(
 	}
 );
 
-router.delete("/:id"),
+router.delete("/:id",
 	jwtValidator,
 	async (req: Request, res: Response) => {
 		try {
@@ -57,6 +57,6 @@ router.delete("/:id"),
 			console.error(error);
 			res.status(500).send("Error uploading file.");
 		}
-	};
+	});
 
 export default router;
