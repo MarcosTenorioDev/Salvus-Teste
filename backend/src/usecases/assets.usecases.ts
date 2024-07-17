@@ -1,3 +1,4 @@
+import { randomUUID } from "crypto";
 import {
 	AssetRepository,
 	IAsset,
@@ -46,7 +47,7 @@ class AssetUseCase {
 			// Upload file to s3
 			const result = await this.s3.uploadFile(
 				assetData.description ||
-					`asset-${new Date().toISOString()}.${assetData.type}`,
+					`asset-${new Date().toISOString()}.${randomUUID()}.${assetData.type}`,
 				file
 			);
 			if (!result) {

@@ -6,6 +6,7 @@ import { jwtValidator } from "../middlewares/auth.middlewares";
 import { UserRepositoryPrisma } from "../repositories/user.repository";
 import { ProductRepositoryPrisma } from "../repositories/product.repository";
 import multer from "multer";
+import { randomUUID } from "crypto";
 
 const router = Router();
 const upload = multer({ dest: "tmp/" });
@@ -30,7 +31,7 @@ router.post(
 				(file): IAssetCreateProduct => {
 					return {
 						type: file.mimetype,
-						description: `asset-${new Date().toISOString()}.${file.mimetype}`,
+						description: `asset-${new Date().toISOString()}.${randomUUID()}.${file.mimetype}`,
 						path: file.path,
 						productId: productId
 					};

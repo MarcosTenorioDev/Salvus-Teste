@@ -7,6 +7,7 @@ import { UserUseCase } from "../usecases/user.usecases";
 import multer from "multer";
 import { IAssetCreate } from "../interfaces/asset.interface";
 import fs from "fs";
+import { randomUUID } from "crypto";
 
 const router = Router();
 const userRepository = new UserRepositoryPrisma();
@@ -62,7 +63,7 @@ router.post(
 				(file): IAssetCreate => {
 					return {
 						type: file.mimetype,
-						description: `asset-${new Date().toISOString()}.${file.mimetype}`,
+						description: `asset-${new Date().toISOString()}.${randomUUID()}.${file.mimetype}`,
 						path: file.path,
 					};
 				}
