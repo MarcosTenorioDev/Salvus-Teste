@@ -29,7 +29,7 @@ import {
 	AlertDialogTitle,
 	AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 const CreateProduct = () => {
 	const t = useT();
@@ -57,6 +57,9 @@ const CreateProduct = () => {
 		try {
 			setIsLoading(true);
 			const productResponse = await productService.getProductById(id);
+			if (!productResponse) {
+				navigate("/managment");
+			}
 			if (productResponse) {
 				const fetchedProduct = productResponse.data;
 				setProduct(fetchedProduct);
@@ -64,6 +67,7 @@ const CreateProduct = () => {
 				setSelectedImage(fetchedProduct.assets[0] || null);
 			}
 		} catch (error) {
+			console.log("deu erro", error);
 			ToastService.showError("Erro ao carregar o produto.");
 		} finally {
 			setIsLoading(false);
@@ -245,7 +249,7 @@ const CreateProduct = () => {
 							{}
 						</h1>
 						{id ? (
-							<>
+							<div className="flex gap-6">
 								<AlertDialog>
 									<Button asChild variant={"destructive"} disabled={isDeleting}>
 										<AlertDialogTrigger> Excluir produto</AlertDialogTrigger>
@@ -273,7 +277,15 @@ const CreateProduct = () => {
 										</AlertDialogFooter>
 									</AlertDialogContent>
 								</AlertDialog>
-							</>
+
+								<Button
+									variant={"secondary"}
+									className="flex justify-center items-center gap-4 border-[1px] border-transparent hover:border-primary hover:text-primary "
+									onClick={() => navigate('/managment/createProduct')}
+								>
+									Criar novo <PlusIcon/>
+								</Button>
+							</div>
 						) : (
 							""
 						)}
