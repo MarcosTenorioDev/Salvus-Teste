@@ -35,7 +35,7 @@ const CreateProduct = () => {
 	const t = useT();
 	const productService = new ProductService();
 	const routerParams = useParams();
-	const id = routerParams.id
+	const id = routerParams.id;
 	const [isSending, setIsSending] = useState<boolean>(false);
 	const [isDeleting, setIsDeleting] = useState<boolean>(false);
 	const [assets, setAssets] = useState<Array<IAsset | IAssetProductCreate>>([]);
@@ -47,15 +47,13 @@ const CreateProduct = () => {
 	const [isLoading, setIsLoading] = useState<boolean>(false);
 	const navigate = useNavigate();
 
-	
-		useEffect(() => {
-			resetComponent();
-			fetchProduct();
-		}, [id]);
-	
+	useEffect(() => {
+		resetComponent();
+		fetchProduct();
+	}, [id]);
 
 	const fetchProduct = async () => {
-		if(!id) return
+		if (!id) return;
 		try {
 			setIsLoading(true);
 			const productResponse = await productService.getProductById(id);
@@ -106,31 +104,36 @@ const CreateProduct = () => {
 				formData.append("assets", asset.file);
 				return;
 			}
-			console.log("assets criados do backend", asset);
-		});
-
-		deletedAssets.map((asset) => {
-			/* Criar rotina de excluir os assets */
-			console.log("assets a serem exluidos", asset);
 		});
 
 		try {
 			if (id) {
-				/*const response = await productService.updateProduct(id, formData);
+				const deletedAssetsIds: string[] = deletedAssets.map(
+					(asset) => asset.id
+				);
+				const deletedAssetsIdsPayload: string =
+					JSON.stringify(deletedAssetsIds);
+				formData.append("deleteAssetsIds", deletedAssetsIdsPayload);
+				const response = await productService.updateProduct(id, formData);
 				if (response) {
-					ToastService.showSuccess("Produto editado com sucesso");
-				} */
-				ToastService.showSuccess("EDITANDO PRODUTO");
+					ToastService.showSuccess("Produto editado com sucesso", () =>
+						fetchProduct()
+					);
+				}
 			} else {
 				const response = await productService.postProduct(formData);
 				if (response) {
 					ToastService.showSuccess("Produto criado com sucesso", () =>
-						navigate("/managment"));
+						navigate("/managment")
+					);
 				}
-				ToastService.showSuccess("CRIANDO PRODUTO");
 			}
 		} catch (err) {
-			ToastService.showError("Deu erro");
+			ToastService.showError(
+				`Houve um problema ao ${
+					id ? "editar" : "criar"
+				} o seu produto, por favor, tente novamente`
+			);
 		} finally {
 			setIsSending(false);
 		}
@@ -185,7 +188,6 @@ const CreateProduct = () => {
 		try {
 			const result = await productService.deleteProductById(id);
 			if (result) {
-				console.log(result);
 				ToastService.showSuccess("Produto excluido com sucesso", () =>
 					navigate("/managment")
 				);
@@ -228,7 +230,7 @@ const CreateProduct = () => {
 		setProduct(undefined);
 		setIsLoading(false);
 	};
-	
+
 	return (
 		<div className="max-w-7xl mx-auto px-4 py-8">
 			{isLoading ? (
