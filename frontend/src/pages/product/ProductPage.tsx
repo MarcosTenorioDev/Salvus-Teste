@@ -129,9 +129,9 @@ const ProductPage = () => {
 									})}
 							</CarouselContent>
 							<CarouselPrevious
-								className={`${selectedImage ? "" : "hidden"}`}
+								className={`${selectedImage ? "hidden md:flex" : "hidden"}`}
 							/>
-							<CarouselNext className={`${selectedImage ? "" : "hidden"}`} />
+							<CarouselNext className={`${selectedImage ? "hidden md:flex" : "hidden"}`} />
 						</Carousel>
 					</div>
 					<div className="w-full md:w-[calc(100%-380px)] flex flex-col gap-2">
