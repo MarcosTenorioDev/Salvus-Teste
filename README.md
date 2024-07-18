@@ -10,13 +10,22 @@ Med + é uma aplicação fullstack desenvolvida como parte de um teste técnico 
 
 - **Criação de Produtos**: Permite criar produtos com múltiplas imagens e informações detalhadas.
 - **Edição de Produtos**: Funcionalidade para editar informações e imagens de produtos existentes.
-  ![salvus-teste vercel app_managment_product_ae4e5daf-d163-44cd-91a8-13434d66524c](https://github.com/user-attachments/assets/73655860-88af-4c41-bb83-27b14b8f36fd)
+- **Autenticação de requisições**: Permite aos usuários ter uma proteção maior quanto a edição de seus produtos, pois os mesmo só podem ser editados com um token de autorização válido e apenas pelo próprio criador do produto.
+ ![salvus-teste vercel app_managment_product_ae4e5daf-d163-44cd-91a8-13434d66524c](https://github.com/user-attachments/assets/73655860-88af-4c41-bb83-27b14b8f36fd)
 
 - **Visualização de Produtos**: Permite aos usuários visualizar os detalhes dos produtos, incluindo imagens em um carrossel.
+- **100% responsivo**: Aplicação criada seguindo os conceitos do 'mobile first'.
+
+
+- **Gerenciamento de Perfil de usuário... criação, edição e exclusão de conta**: Permite aos usuários visualizar os detalhes dos produtos, incluindo imagens em um carrossel.
+![image](https://github.com/user-attachments/assets/4eca1496-d18e-42e3-9595-d420c339c241)
+
 
 ## Tecnologias Utilizadas
 
 ### Backend
+Dica: Há um arquivo chamado 'Salvus.postman_collection.json', utilize-o para ver os exemplos das requisições no postman. Caso deseje pegar um token, faça o login na aplicação, va até o 'console do desenvolvedor' > 'aplication' > 'Cookies' > '_session'. esse é o seu token de autenticação de requisição. lembre-se, ele expira rápido, para a segurança da aplicação, então ao pegar o token, jogue-o o no postman e faça sua requisição
+
 
 - **Node.js**: Plataforma de desenvolvimento para a construção do servidor backend.
 - **Express**: Framework web usado para criar o servidor e gerenciar rotas.
