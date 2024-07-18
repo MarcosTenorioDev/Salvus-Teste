@@ -3,7 +3,6 @@ import axios, {
 	AxiosResponse,
 	InternalAxiosRequestConfig,
 } from "axios";
-import ToastService from "../services/toast.service";
 
 export class AxiosInterceptor {
 	private axiosInstance: AxiosInstance;
