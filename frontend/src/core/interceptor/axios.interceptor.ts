@@ -48,13 +48,14 @@ export class AxiosInterceptor {
 	}
 
 	private handleResponseError(error: any) {
-		switch (error.response.status) {
+		/* Caso desejar disparar toasts e gerenciar os status http dee rro */
+		/* switch (error.response.status) {
 			default:
 				ToastService.showError(
 					"Houve um problema no sistema, por favor, contatar o suporte técnico"
 				);
 				break;
-		}
+		} */
 		Promise.reject(error);
 	}
 
