@@ -5,6 +5,7 @@ import MyProducts from "./pages/managment/MyProducts/MyProducts";
 import { LayoutAdmin } from "./layout/sidebarComponents";
 import ProductPage from "./pages/product/ProductPage";
 import CreateProduct from "./pages/managment/CreateProduct/CreateProduct";
+import NotFound from "./layout/notFoundPage/NotFound";
 
 function App() {
 	function UserLayout({ children }: any) {
@@ -58,6 +59,14 @@ function App() {
 							<LayoutAdmin>
 								<CreateProduct />
 							</LayoutAdmin>
+						}
+					/>
+					<Route
+						path="*"
+						element={
+							<UserLayout>
+								<NotFound />
+							</UserLayout>
 						}
 					/>
 				</Routes>

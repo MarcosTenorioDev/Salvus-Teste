@@ -13,6 +13,7 @@ import {
 	CarouselPrevious,
 } from "@/components/ui/carousel";
 import { useT } from "@/assets/i18n";
+import NotFound from "@/layout/notFoundPage/NotFound";
 
 const ProductPage = () => {
 	const { id } = useParams<{ id: string }>();
@@ -85,7 +86,7 @@ const ProductPage = () => {
 	if (error) {
 		return (
 			<div className="max-w-7xl mx-auto px-4 py-8">
-				<p className="text-red-600">{error}</p>
+				<NotFound />
 			</div>
 		);
 	}
