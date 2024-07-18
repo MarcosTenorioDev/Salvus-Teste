@@ -1,0 +1,738 @@
+{
+	"info": {
+		"_postman_id": "7999af0b-e7f8-4016-8051-8114f89783a9",
+		"name": "Salvus",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34763653",
+		"_collection_link": "https://faculdade-4910.postman.co/workspace/Salvus~a59c302d-8968-440f-904a-069b045a9c23/collection/34763653-7999af0b-e7f8-4016-8051-8114f89783a9?action=share&source=collection_link&creator=34763653"
+	},
+	"item": [
+		{
+			"name": "USER - MANAGED BY CLERK",
+			"item": [
+				{
+					"name": "GetProductsByUserExternalId",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJSUzI1NiIsImNhdCI6ImNsX0I3ZDRQRDExMUFBQSIsImtpZCI6Imluc18yajlmWmc5WWpFVnE3dWpZV1lycHg2SHRNakQiLCJ0eXAiOiJKV1QifQ.eyJhenAiOiJodHRwOi8vbG9jYWxob3N0OjUxNzMiLCJleHAiOjE3MjExNDE0MTMsImlhdCI6MTcyMTE0MTM1MywiaXNzIjoiaHR0cHM6Ly9pbmZpbml0ZS13ZXJld29sZi02My5jbGVyay5hY2NvdW50cy5kZXYiLCJuYmYiOjE3MjExNDEzNDMsInNpZCI6InNlc3NfMmpKRmU1NHVXVTUzcDZFSTlXbDdsRkF6ZXd6Iiwic3ViIjoidXNlcl8yakpGZTJxa1F4NU9hTW9CU214TnZRSE5udzQifQ.Adz5gUFNzXqLABQvkQ5DGbvzE5FNNTbOHr6oKBqJnT2LVMD1pECi0EfjettlGeSWypalOgJxW300wBJxBzpyIGvQLln6kF6tG8zOXiSz12xCFOVBjNjMVI_1p2NPQT4tLIGdVJQvyLG6TCU_-Y4x0XWaZ1gTpYAus2ydQZ0sB3MXP6jSfGfqvbPY-NBWvA_oCwHTOQvq1FzmY7_owBJ1UJuksRu3MOOc_ZE4v46LdMJPp4jnWlk7ef7cNT5QTLpeHuorSpJHhVf3aR1TpGVArLQ4YaNigg3VeV3_t_GGsbGif7yh9jPdbcFW1mLT3Me1Q32wF7pI4HM5xaa9z42nXw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/user/products",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user",
+								"products"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "GetAllProducts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/products",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GetAllProducts",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/products",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"products"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Length",
+									"value": "20770"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 17 Jul 2024 23:09:55 GMT"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"5122-odliPA1XBH/mSBXD1xEneFewBFM\""
+								},
+								{
+									"key": "Server",
+									"value": "railway-edge"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "8kPxmJqQQAaMtOLeoa_62A_3165824431"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": \"10864466-e497-4b64-ac26-73d59dc8b11b\",\n        \"name\": \"Termômetro Infravermelho STRA Medical \",\n        \"description\": \"Termômetro Infravermelho Digital Sem Contato. Marca STRA Medical. O Termômetro Infravermelho Digital Sem Contato E125 representa uma inovação em medição de temperatura. Seu sensor infravermelho permite medir a temperatura da testa com precisão sem qualquer contato com o paciente (3-5 cm de distância) em apenas 1 segundo, proporcionando mais higiene e prevenindo infecções cruzadas. Garantia de 1 ano. Prático e Higiênico. Simples e fácil de usar. Clinicamente testado e validado. Possui indicador de pilha fraca no visor. Auto desligamento em 30 segundos para economia das pilhas. Medição da temperatura sem contato da testa, objetos, alimentos e ambientes.\",\n        \"price\": 280,\n        \"createdAt\": \"2024-07-17T05:00:18.910Z\",\n        \"userId\": \"89186266-90ed-4b0d-b468-acc3d36e7fc1\",\n        \"assets\": [\n            {\n                \"id\": \"49de2dcd-191c-43a7-8999-b965b54c6af3\",\n                \"productId\": \"10864466-e497-4b64-ac26-73d59dc8b11b\",\n                \"type\": \"image/png\",\n                \"url\": \"https://salvus-image-database.s3.amazonaws.com/asset-2024-07-17T05:00:18.909Z.image/png\",\n                \"description\": \"asset-2024-07-17T05:00:18.909Z.image/png\"\n            },\n            {\n                \"id\": \"c5d14ca5-5673-4361-b119-2a85098d664b\",\n                \"productId\": \"10864466-e497-4b64-ac26-73d59dc8b11b\",\n                \"type\": \"image/png\",\n                \"url\": \"https://salvus-image-database.s3.amazonaws.com/asset-2024-07-17T05:00:18.909Z.image/png\",\n                \"description\": \"asset-2024-07-17T05:00:18.909Z.image/png\"\n            }\n        ]\n    },\n    {\n        \"id\": \"1aff27e1-05f6-4294-b653-c946ff989676\",\n        \"name\": \"Aparelho de Pressão Digital de Pulso G-Tech\",\n        \"description\": \"Indicador gráfico de nível de pressão arterial;\\r\\n\\r\\nIndicador de correta colocação da braçadeira e de movimentação excessiva;\\r\\n\\r\\n240 memórias (com hora e data) e zonas individuais para até dois usuários;\\r\\n\\r\\nValidado clinicamente;\\r\\n\\r\\nPressão Sistólica e Pressão diastólica;\\r\\n\\r\\nIndicador de arritmia;\\r\\n\",\n        \"price\": 85,\n        \"createdAt\": \"2024-07-17T05:33:19.766Z\",\n        \"userId\": \"89186266-90ed-4b0d-b468-acc3d36e7fc1\",\n        \"assets\": [\n            {\n                \"id\": \"1f622d76-5d6b-4e4a-8de3-02c14dbd1ea4\",\n                \"productId\": \"1aff27e1-05f6-4294-b653-c946ff989676\",\n                \"type\": \"image/png\",\n                \"url\": \"https://salvus-image-database.s3.amazonaws.com/asset-2024-07-17T05:33:19.765Z.5fe41d61-cd1f-469c-a020-a68ee9656db9.image/png\",\n                \"description\": \"asset-2024-07-17T05:33:19.765Z.5fe41d61-cd1f-469c-a020-a68ee9656db9.image/png\"\n            },\n            {\n                \"id\": \"3000a377-e6ff-4e33-b684-67454a2eaf26\",\n                \"productId\": \"1aff27e1-05f6-4294-b653-c946ff989676\",\n                \"type\": \"image/png\",\n                \"url\": \"https://salvus-image-database.s3.amazonaws.com/asset-2024-07-17T05:33:19.765Z.dd42bb00-9c83-4a8d-9f53-01cf6ab230b8.image/png\",\n                \"description\": \"asset-2024-07-17T05:33:19.765Z.dd42bb00-9c83-4a8d-9f53-01cf6ab230b8.image/png\"\n            },\n            {\n                \"id\": \"ef0f23dd-48b4-47f8-80c4-50b9475b1383\",\n                \"productId\": \"1aff27e1-05f6-4294-b653-c946ff989676\",\n                \"type\": \"image/png\",\n                \"url\": \"https://salvus-image-database.s3.amazonaws.com/asset-2024-07-17T05:33:19.765Z.f45460b7-4d3b-42ae-827c-aeea8f5f4846.image/png\",\n                \"description\": \"asset-2024-07-17T05:33:19.765Z.f45460b7-4d3b-42ae-827c-aeea8f5f4846.image/png\"\n            }\n        ]\n    },\n    {\n        \"id\": \"27542f9d-3758-435c-bd05-12b1c6d4f14b\",\n        \"name\": \"Água Oxigenada 10 Volums - 1L Rioquímica\",\n        \"description\": \"Água Oxigenada 10 Volumes1 Litro - RIOQUÍMICAMedicamento antisséptico tópico, utilizado para assepsia de ferimentos e em gargarejos ou bochechos.Características: 3% de peróxido de hidrogênio.Frasco com 1 litro.ANVISA: 199/2006.Atenção! Este item é vendido por unidade.As cores apresentadas no site são meramente ilustrativas e podem ou não corresponder com exatidão à tonalidade aplicada.Para mais informações sobre manuseio e cuidados quanto ao uso do produto, consulte o Manual do Usuário.Imagem meramente ilustrativa e a descrição do produto é de responsabilidade do fabricante.\",\n        \"price\": 12.67,\n        \"createdAt\": \"2024-07-17T05:31:05.528Z\",\n        \"userId\": \"89186266-90ed-4b0d-b468-acc3d36e7fc1\",\n        \"assets\": [\n            {\n                \"id\": \"6a5c9649-665f-49b1-8c79-e4debd7cdc1c\",\n                \"productId\": \"27542f9d-3758-435c-bd05-12b1c6d4f14b\",\n                \"type\": \"image/png\",\n                \"url\": \"https://salvus-image-database.s3.amazonaws.com/asset-2024-07-17T05:31:05.526Z.1c52d4c4-a70d-4af2-9a86-219d159c0cf3.image/png\",\n                \"description\": \"asset-2024-07-17T05:31:05.526Z.1c52d4c4-a70d-4af2-9a86-219d159c0cf3.image/png\"\n            }\n        ]\n    },\n    {\n        \"id\": \"2efe293a-6ec3-4e68-a2d3-3d60eda8373c\",\n        \"name\": \"Agulha Hipodérmica (rosa) 40 x 12 mm - Descarpack\",\n        \"description\": \"A Agulha Hipodérmica Descartável Descarpack foi desenvolvida para aplicação de soluções e medicamentos pela via parenteral (subcutânea, intramuscular e endovenosa), além de poder ser utilizada para coleta sanguínea e de outros fluídos corpóreos.\\r\\n\\r\\nDescartável\\r\\nFabricada em aço inoxidável; Estéril; Atóxica e apirogênica;\\r\\nCanhão identificado por cores de acordo com ISO 6009:2016; Permite conexão com seringas de bico Luer Slip e Luer Lock;\\r\\nBisel trifacetado; Aprovada pelo INMETRO; Descartável e de uso único.\\r\\nTamanho e Cor: 13x0,45 mm - Marrom/ 25x0,70 mm - Preto/ 25x0,80 mm - Verde/ 30x0,70 mm - Preto/ 30x0,80 mm - Verde/ 40x1,20 mm - Rosa/\",\n        \"price\": 16.57,\n        \"createdAt\": \"2024-07-17T05:46:14.650Z\",\n        \"userId\": \"89186266-90ed-4b0d-b468-acc3d36e7fc1\",\n        \"assets\": [\n            {\n                \"id\": \"4a513191-0d2f-40c3-8e68-1e7ba945e8ec\",\n                \"productId\": \"2efe293a-6ec3-4e68-a2d3-3d60eda8373c\",\n                \"type\": \"image/png\",\n                \"url\": \"https://salvus-image-database.s3.amazonaws.com/asset-2024-07-17T05:46:14.649Z.6a4fcd4f-c5b3-4eb2-b462-755d6af6b10d.image/png\",\n                \"description\": \"asset-2024-07-17T05:46:14.649Z.6a4fcd4f-c5b3-4eb2-b462-755d6af6b10d.image/png\"\n            },\n            {\n                \"id\": \"7da586a8-36c6-4cfd-ad6c-f3c1a1a4af90\",\n                \"productId\": \"2efe293a-6ec3-4e68-a2d3-3d60eda8373c\",\n                \"type\": \"image/png\",\n                \"url\": \"https://salvus-image-database.s3.amazonaws.com/asset-2024-07-17T05:46:14.650Z.518f3a9a-082c-41b8-a8ed-c8f5bcb155ce.image/png\",\n                \"description\": \"asset-2024-07-17T05:46:14.650Z.518f3a9a-082c-41b8-a8ed-c8f5bcb155ce.image/png\"\n            },\n            {\n                \"id\": \"8fb89d10-eef3-49ad-9e99-dd709e6e7e7e\",\n                \"productId\": \"2efe293a-6ec3-4e68-a2d3-3d60eda8373c\",\n                \"type\": \"image/png\",\n                \"url\": \"https://salvus-image-database.s3.amazonaws.com/asset-2024-07-17T05:46:14.649Z.07186e79-26ff-48c6-9749-71f6474ed2a0.image/png\",\n                \"description\": \"asset-2024-07-17T05:46:14.649Z.07186e79-26ff-48c6-9749-71f6474ed2a0.image/png\"\n            },\n            {\n                \"id\": \"9a952d8c-e472-41f4-97a9-f525b17f4a5a\",\n                \"productId\": \"2efe293a-6ec3-4e68-a2d3-3d60eda8373c\",\n                \"type\": \"image/png\",\n                \"url\": \"https://salvus-image-database.s3.amazonaws.com/asset-2024-07-17T05:46:14.650Z.1fb27891-7f96-4897-93d2-9998c1cb990c.image/png\",\n                \"description\": \"asset-2024-07-17T05:46:14.650Z.1fb27891-7f96-4897-93d2-9998c1cb990c.image/png\"\n            }\n        ]\n    },\n    {\n        \"id\": \"37ad2a94-d0c6-4a8f-a169-0adedd96d278\",\n        \"name\": \"Cateter Intravenoso TKL - 14G \",\n        \"description\": \"Cateter Intravenoso - TKL é utilizado no procedimento de acesso venoso periférico. Indicado para terapia infusional intravenosa periférica de curta permanência, com a administração de soluções, medicamentos hemoderivados, nutrição parenteral, ou para retirada de fluidos do sistema venoso periférico.\",\n        \"price\": 1.79,\n        \"createdAt\": \"2024-07-17T04:32:04.412Z\",\n        \"userId\": \"89186266-90ed-4b0d-b468-acc3d36e7fc1\",\n        \"assets\": [\n            {\n                \"id\": \"99bc06d7-dd14-4f12-85d8-65d1f9d5b146\",\n                \"productId\": \"37ad2a94-d0c6-4a8f-a169-0adedd96d278\",\n                \"type\": \"image/png\",\n                \"url\": \"https://salvus-image-database.s3.amazonaws.com/asset-2024-07-17T04:32:04.412Z.image/png\",\n                \"description\": \"asset-2024-07-17T04:32:04.412Z.image/png\"\n            }\n        ]\n    },\n    {\n        \"id\": \"3bf12bf7-44fe-4e34-9db7-3a62fa5e57aa\",\n        \"name\": \"Termômetro Infravermelho STRA Medical \",\n        \"description\": \"Termômetro Infravermelho Digital Sem Contato. Marca STRA Medical. O Termômetro Infravermelho Digital Sem Contato E125 representa uma inovação em medição de temperatura. Seu sensor infravermelho permite medir a temperatura da testa com precisão sem qualquer contato com o paciente (3-5 cm de distância) em apenas 1 segundo, proporcionando mais higiene e prevenindo infecções cruzadas. Garantia de 1 ano. Prático e Higiênico. Simples e fácil de usar. Clinicamente testado e validado. Possui indicador de pilha fraca no visor. Auto desligamento em 30 segundos para economia das pilhas. Medição da temperatura sem contato da testa, objetos, alimentos e ambientes.\",\n        \"price\": 260,\n        \"createdAt\": \"2024-07-17T05:35:26.543Z\",\n        \"userId\": \"89186266-90ed-4b0d-b468-acc3d36e7fc1\",\n        \"assets\": [\n            {\n                \"id\": \"5107f554-4f58-4b69-9abe-0e85bc54daea\",\n                \"productId\": \"3bf12bf7-44fe-4e34-9db7-3a62fa5e57aa\",\n                \"type\": \"image/png\",\n                \"url\": \"https://salvus-image-database.s3.amazonaws.com/asset-2024-07-17T05:35:26.542Z.4cbfe8c5-9a2e-4416-b313-5a7dc90c9242.image/png\",\n                \"description\": \"asset-2024-07-17T05:35:26.542Z.4cbfe8c5-9a2e-4416-b313-5a7dc90c9242.image/png\"\n            },\n            {\n                \"id\": \"ba0c2918-f397-4b04-a61a-e70251920cff\",\n                \"productId\": \"3bf12bf7-44fe-4e34-9db7-3a62fa5e57aa\",\n                \"type\": \"image/png\",\n                \"url\": \"https://salvus-image-database.s3.amazonaws.com/asset-2024-07-17T05:35:26.542Z.335c1f99-5cfe-4ee4-b83f-827c1d272da9.image/png\",\n                \"description\": \"asset-2024-07-17T05:35:26.542Z.335c1f99-5cfe-4ee4-b83f-827c1d272da9.image/png\"\n            }\n        ]\n    },\n    {\n        \"id\": \"44aca772-f564-4bb7-9e98-19027049af51\",\n        \"name\": \"Termômetro Infravermelho STRA Medical \",\n        \"description\": \"Termômetro Infravermelho Digital Sem Contato. Marca STRA Medical. \\r\\n\\r\\nO Termômetro Infravermelho Digital Sem Contato E125 representa uma inovação em medição de temperatura.\\r\\nSeu sensor infravermelho permite medir a temperatura da testa com precisão sem qualquer contato com o paciente (3-5 cm de distância) em apenas 1 segundo, proporcionando mais higiene e prevenindo infecções cruzadas.\\r\\n\\r\\nGarantia de 1 ano.\\r\\n\\r\\nPrático e Higiênico.\\r\\n\\r\\nSimples e fácil de usar.\\r\\n\\r\\nClinicamente testado e validado.\\r\\n\\r\\nPossui indicador de pilha fraca no visor.\\r\\n\\r\\nAuto desligamento em 30 segundos para economia das pilhas.\\r\\n\\r\\nMedição da temperatura sem contato da testa, objetos, alimentos e ambientes.\",\n        \"price\": 280,\n        \"createdAt\": \"2024-07-17T04:56:35.837Z\",\n        \"userId\": \"89186266-90ed-4b0d-b468-acc3d36e7fc1\",\n        \"assets\": [\n            {\n                \"id\": \"61b85ec9-9998-4b73-a5f1-890f67b60bba\",\n                \"productId\": \"44aca772-f564-4bb7-9e98-19027049af51\",\n                \"type\": \"image/png\",\n                \"url\": \"https://salvus-image-database.s3.amazonaws.com/asset-2024-07-17T04:56:35.836Z.image/png\",\n                \"description\": \"asset-2024-07-17T04:56:35.836Z.image/png\"\n            }\n        ]\n    },\n    {\n        \"id\": \"5a6a50d3-cd5b-44f2-b638-b1cdc99ce95b\",\n        \"name\": \"Compressa de Gaze \",\n        \"description\": \"Tecido fino e estéril usado para limpeza, curativos e proteção de feridas. 11 fios. \\r\\n\\r\\nPacote com 10 unidades estéreis. \",\n        \"price\": 7.2,\n        \"createdAt\": \"2024-07-17T04:19:23.510Z\",\n        \"userId\": \"89186266-90ed-4b0d-b468-acc3d36e7fc1\",\n        \"assets\": [\n            {\n                \"id\": \"9efb9786-2dd7-47db-87d2-d500a8dacd1e\",\n                \"productId\": \"5a6a50d3-cd5b-44f2-b638-b1cdc99ce95b\",\n                \"type\": \"image/png\",\n                \"url\": \"https://salvus-image-database.s3.amazonaws.com/asset-2024-07-17T04:19:23.509Z.image/png\",\n                \"description\": \"asset-2024-07-17T04:19:23.509Z.image/png\"\n            }\n        ]\n    },\n    {\n        \"id\": \"64cab85f-ac5c-44df-86a6-ebdba36d2c5d\",\n        \"name\": \"Eu mesmo\",\n        \"description\": \"Oi\",\n        \"price\": 0,\n        \"createdAt\": \"2024-07-17T22:35:54.330Z\",\n        \"userId\": \"ec23270b-8a0d-4647-94d0-e36103da127c\",\n        \"assets\": [\n            {\n                \"id\": \"16b5f7ab-a2c1-4a5e-85b4-53f7dbc474df\",\n                \"productId\": \"64cab85f-ac5c-44df-86a6-ebdba36d2c5d\",\n                \"type\": \"image/jpeg\",\n                \"url\": \"https://salvus-image-database.s3.amazonaws.com/asset-2024-07-17T22:35:54.328Z.68162b4f-4dc6-4aa8-adac-09702069d4a1.image/jpeg\",\n                \"description\": \"asset-2024-07-17T22:35:54.328Z.68162b4f-4dc6-4aa8-adac-09702069d4a1.image/jpeg\"\n            },\n            {\n                \"id\": \"c21ca89a-1d17-4cb0-a2d6-28ecf2764578\",\n                \"productId\": \"64cab85f-ac5c-44df-86a6-ebdba36d2c5d\",\n                \"type\": \"image/jpeg\",\n                \"url\": \"https://salvus-image-database.s3.amazonaws.com/asset-2024-07-17T22:35:54.329Z.416f3d6c-e2f0-4869-875e-6122d2714a2d.image/jpeg\",\n                \"description\": \"asset-2024-07-17T22:35:54.329Z.416f3d6c-e2f0-4869-875e-6122d2714a2d.image/jpeg\"\n            }\n        ]\n    },\n    {\n        \"id\": \"724455a7-f9be-484a-8ac5-b07b974243bc\",\n        \"name\": \"Álcool Iodado 0,1% - 1L RioFarma\",\n        \"description\": \"O Álcool Iodado 0,1% é uma solução alcoólica contendo 0,1% de Iodo, indicada como antisséptico tópico, utilizada em curativos no tratamento de feridas. \\r\\n\\r\\nO Álcool Iodado 0,1% - Rioquímica deve ser utilizado para uso externo e ser aplicado topicamente em curativos no tratamento de feridas, principalmente para irrigações de feridas. \",\n        \"price\": 45,\n        \"createdAt\": \"2024-07-17T05:22:02.777Z\",\n        \"userId\": \"89186266-90ed-4b0d-b468-acc3d36e7fc1\",\n        \"assets\": [\n            {\n                \"id\": \"2851db49-54a9-4357-9207-45f3d6976cb9\",\n                \"productId\": \"724455a7-f9be-484a-8ac5-b07b974243bc\",\n                \"type\": \"image/jpeg\",\n                \"url\": \"https://salvus-image-database.s3.amazonaws.com/asset-2024-07-17T05:22:02.776Z.image/jpeg\",\n                \"description\": \"asset-2024-07-17T05:22:02.776Z.image/jpeg\"\n            }\n        ]\n    },\n    {\n        \"id\": \"88aecc06-028a-422c-87b6-27f09e8f2971\",\n        \"name\": \"Termômetro Digital G-Tech\",\n        \"description\": \"Termômetro Digital G-Tech. Instrumento para medir a temperatura corporal. Cor Rosa. \\r\\n\\r\\n- Resultado em 1 minuto;\\r\\n- Memória;\\r\\n- Beep de fim de medição;\\r\\n- Desligamento automático;\\r\\n- LCD de fácil visualização.\",\n        \"price\": 17.6,\n        \"createdAt\": \"2024-07-17T04:48:10.774Z\",\n        \"userId\": \"89186266-90ed-4b0d-b468-acc3d36e7fc1\",\n        \"assets\": [\n            {\n                \"id\": \"cfd963cc-56f4-42d7-b038-455cc5c6a5c4\",\n                \"productId\": \"88aecc06-028a-422c-87b6-27f09e8f2971\",\n                \"type\": \"image/png\",\n                \"url\": \"https://salvus-image-database.s3.amazonaws.com/asset-2024-07-17T04:48:10.773Z.image/png\",\n                \"description\": \"asset-2024-07-17T04:48:10.773Z.image/png\"\n            }\n        ]\n    },\n    {\n        \"id\": \"8c2fdd06-0d3d-4e91-a10c-646382a4523e\",\n        \"name\": \"Máscaras Cirúrgicas FT Mask\",\n        \"description\": \"Caixa com 50 Máscaras Cirúrgicas Descartáveis. Cor Branca. Proteção Tripla. \",\n        \"price\": 22.4,\n        \"createdAt\": \"2024-07-17T04:39:37.759Z\",\n        \"userId\": \"89186266-90ed-4b0d-b468-acc3d36e7fc1\",\n        \"assets\": [\n            {\n                \"id\": \"0372f17e-f2a7-4bf0-a8bb-4c91d072b2ec\",\n                \"productId\": \"8c2fdd06-0d3d-4e91-a10c-646382a4523e\",\n                \"type\": \"image/png\",\n                \"url\": \"https://salvus-image-database.s3.amazonaws.com/asset-2024-07-17T04:39:37.758Z.image/png\",\n                \"description\": \"asset-2024-07-17T04:39:37.758Z.image/png\"\n            }\n        ]\n    },\n    {\n        \"id\": \"aef13ef5-580a-44ba-acb3-2819a73187ad\",\n        \"name\": \"Esparadrapo Nexcare \",\n        \"description\": \"Esparadrapo Impermeável Bege. 50mm x 3m. Alta aderência e resistência, compressão e fixação de gazes e ataduras. \\r\\n\\r\\n\",\n        \"price\": 13,\n        \"createdAt\": \"2024-07-17T04:23:41.120Z\",\n        \"userId\": \"89186266-90ed-4b0d-b468-acc3d36e7fc1\",\n        \"assets\": [\n            {\n                \"id\": \"5e76624e-306a-4718-9221-38e32318d06b\",\n                \"productId\": \"aef13ef5-580a-44ba-acb3-2819a73187ad\",\n                \"type\": \"image/jpeg\",\n                \"url\": \"https://salvus-image-database.s3.amazonaws.com/asset-2024-07-17T04:23:41.120Z.image/jpeg\",\n                \"description\": \"asset-2024-07-17T04:23:41.120Z.image/jpeg\"\n            }\n        ]\n    },\n    {\n        \"id\": \"c05eda76-e093-47b6-9989-7ac07d186d4a\",\n        \"name\": \"llll\",\n        \"description\": \"gvhgvhgv \",\n        \"price\": 4,\n        \"createdAt\": \"2024-07-17T05:05:42.844Z\",\n        \"userId\": \"89186266-90ed-4b0d-b468-acc3d36e7fc1\",\n        \"assets\": [\n            {\n                \"id\": \"37f9aebe-2f85-4ac8-9dc5-88b1983033f7\",\n                \"productId\": \"c05eda76-e093-47b6-9989-7ac07d186d4a\",\n                \"type\": \"image/png\",\n                \"url\": \"https://salvus-image-database.s3.amazonaws.com/asset-2024-07-17T05:05:42.843Z.image/png\",\n                \"description\": \"asset-2024-07-17T05:05:42.843Z.image/png\"\n            },\n            {\n                \"id\": \"40b81c76-8c2d-4d93-997d-970574c363f9\",\n                \"productId\": \"c05eda76-e093-47b6-9989-7ac07d186d4a\",\n                \"type\": \"image/png\",\n                \"url\": \"https://salvus-image-database.s3.amazonaws.com/asset-2024-07-17T05:05:42.843Z.image/png\",\n                \"description\": \"asset-2024-07-17T05:05:42.843Z.image/png\"\n            },\n            {\n                \"id\": \"c367f852-41bc-4761-919f-68452a9ef6e6\",\n                \"productId\": \"c05eda76-e093-47b6-9989-7ac07d186d4a\",\n                \"type\": \"image/png\",\n                \"url\": \"https://salvus-image-database.s3.amazonaws.com/asset-2024-07-17T05:05:42.843Z.image/png\",\n                \"description\": \"asset-2024-07-17T05:05:42.843Z.image/png\"\n            }\n        ]\n    },\n    {\n        \"id\": \"c3c0cef4-0fdc-4bbc-996b-add4601ee9c0\",\n        \"name\": \"Algodão Hidrófilo Cremer\",\n        \"description\": \"O Algodão Hidrófilo Cremer é composto de fibras 100% algodão, alvejadas, transformadas em mantas uniformes e isentas de impurezas. Ideal para uso doméstico na remoção de maquiagem, higiene do bebê, higienização e assepsia da pele.\\r\\n\",\n        \"price\": 5.98,\n        \"createdAt\": \"2024-07-17T16:44:53.252Z\",\n        \"userId\": \"89186266-90ed-4b0d-b468-acc3d36e7fc1\",\n        \"assets\": [\n            {\n                \"id\": \"68a552b9-a91a-4053-a157-a804a5ef55f3\",\n                \"productId\": \"c3c0cef4-0fdc-4bbc-996b-add4601ee9c0\",\n                \"type\": \"image/png\",\n                \"url\": \"https://salvus-image-database.s3.amazonaws.com/asset-2024-07-17T16:44:53.223Z.de30a8a2-09b1-4cb0-b7dd-fe0702ff9dc1.image/png\",\n                \"description\": \"asset-2024-07-17T16:44:53.223Z.de30a8a2-09b1-4cb0-b7dd-fe0702ff9dc1.image/png\"\n            }\n        ]\n    },\n    {\n        \"id\": \"e2495ed4-b8ee-468b-8bd7-8808e4c77172\",\n        \"name\": \"Curativos Adesivos Band-Aid\",\n        \"description\": \"Pequenos curativos autoadesivos usados para cobrir pequenos cortes e abrasões. Proteção de pequenas feridas, prevenção de infecções. Curativos respiráveis. Caixa contendo 40 unidades, \",\n        \"price\": 35.7,\n        \"createdAt\": \"2024-07-17T05:16:02.561Z\",\n        \"userId\": \"89186266-90ed-4b0d-b468-acc3d36e7fc1\",\n        \"assets\": [\n            {\n                \"id\": \"548ed7c3-9e6b-439e-a887-db69e5e1959d\",\n                \"productId\": \"e2495ed4-b8ee-468b-8bd7-8808e4c77172\",\n                \"type\": \"image/jpeg\",\n                \"url\": \"https://salvus-image-database.s3.amazonaws.com/asset-2024-07-17T05:16:02.560Z.image/jpeg\",\n                \"description\": \"asset-2024-07-17T05:16:02.560Z.image/jpeg\"\n            }\n        ]\n    },\n    {\n        \"id\": \"e425dc0a-5f5e-47b6-b58e-9e5bf623d2de\",\n        \"name\": \"Álcool Gel Super Vale 70º\",\n        \"description\": \"O Álcool Gel Super Vale 70° - 5L é um produto confiável, seguro e eficaz na desinfecção e higienização. Com sua alta concentração de álcool e praticidade de uso, ele oferece uma solução prática e eficiente para garantir ambientes mais limpos e livres de microrganismos prejudiciais à saúde.\\r\\n\\r\\nApresentação:\\r\\nEsse produto possui uma graduação de 70° INPM (Índice de Peróxidos de Metila), o que indica sua alta pureza e eficácia como agente desinfetante;\\r\\nSua fórmula especial, combinada com agentes espessantes, proporciona um gel de consistência viscosa e fácil de ser aplicado, garantindo uma cobertura uniforme nas superfícies a serem higienizadas.\",\n        \"price\": 41.9,\n        \"createdAt\": \"2024-07-17T05:25:58.524Z\",\n        \"userId\": \"89186266-90ed-4b0d-b468-acc3d36e7fc1\",\n        \"assets\": [\n            {\n                \"id\": \"94a1d18f-ddd5-4ae2-baf5-4fb51b759989\",\n                \"productId\": \"e425dc0a-5f5e-47b6-b58e-9e5bf623d2de\",\n                \"type\": \"image/png\",\n                \"url\": \"https://salvus-image-database.s3.amazonaws.com/asset-2024-07-17T05:25:58.523Z.image/png\",\n                \"description\": \"asset-2024-07-17T05:25:58.523Z.image/png\"\n            }\n        ]\n    },\n    {\n        \"id\": \"e8fd9282-1143-44fd-82e1-1d9bb782d770\",\n        \"name\": \"Seringas 20ml Descartáveis S/ Agulha\",\n        \"description\": \"Dispositivos para administrar medicamentos ou retirar fluidos do corpo. Capacidade de até 20ml. NÃO CONTÉM AGULHA. Caixa com 50 unidades descartáveis. \",\n        \"price\": 42.9,\n        \"createdAt\": \"2024-07-17T05:41:23.766Z\",\n        \"userId\": \"89186266-90ed-4b0d-b468-acc3d36e7fc1\",\n        \"assets\": [\n            {\n                \"id\": \"7237a33a-2866-4240-a3ae-91150b3962b4\",\n                \"productId\": \"e8fd9282-1143-44fd-82e1-1d9bb782d770\",\n                \"type\": \"image/png\",\n                \"url\": \"https://salvus-image-database.s3.amazonaws.com/asset-2024-07-17T05:41:23.765Z.b939a357-98d3-4deb-939e-0a83afd049c9.image/png\",\n                \"description\": \"asset-2024-07-17T05:41:23.765Z.b939a357-98d3-4deb-939e-0a83afd049c9.image/png\"\n            }\n        ]\n    },\n    {\n        \"id\": \"ff391ad4-84ae-40a8-917e-7b599feb2a8d\",\n        \"name\": \"Bandagem Elástica Autoaderente \",\n        \"description\": \"Bandagem Elástica Autoaderente. Marca Bioland. Tamanho 5cm X 4,5cm. Consultar cores disponíveis. \\r\\n\\r\\nBandagem Elástica Autoaderente Bioland é um produto versátil e prático, utilizado para diversas finalidades, desde o suporte e compressão de articulações até a fixação de curativos. Essa bandagem é altamente flexível e aderente, o que permite seu uso em diferentes partes do corpo com facilidade. A bandagem elástica Bioland é indicada para uso de profissionais e deve ser aplicada em pontos específicos respeitando os modos de aplicação. \\r\\n\\r\\nA Bandagem Elástica Autoaderente 5CMx4,5M Bioland é fabricada em tecido de algodão e poliéster, revestida com adesivo em acrílico flexível que proporciona suavidade, fornece durabilidade e resistência ao produto. Proporciona conforto e comodidade ao usuário, pois não restringe a mobilidade dos movimentos. \",\n        \"price\": 12.65,\n        \"createdAt\": \"2024-07-17T16:52:14.440Z\",\n        \"userId\": \"89186266-90ed-4b0d-b468-acc3d36e7fc1\",\n        \"assets\": [\n            {\n                \"id\": \"476e409f-d6bf-425e-86c6-b2e73933a6e4\",\n                \"productId\": \"ff391ad4-84ae-40a8-917e-7b599feb2a8d\",\n                \"type\": \"image/png\",\n                \"url\": \"https://salvus-image-database.s3.amazonaws.com/asset-2024-07-17T16:52:14.439Z.b27ae3e5-a21e-4199-b784-993af8b61c71.image/png\",\n                \"description\": \"asset-2024-07-17T16:52:14.439Z.b27ae3e5-a21e-4199-b784-993af8b61c71.image/png\"\n            },\n            {\n                \"id\": \"76b82d85-6b34-4c99-8ed1-dd293119a046\",\n                \"productId\": \"ff391ad4-84ae-40a8-917e-7b599feb2a8d\",\n                \"type\": \"image/png\",\n                \"url\": \"https://salvus-image-database.s3.amazonaws.com/asset-2024-07-17T16:52:14.439Z.142ee86f-bc51-4d45-afae-54ec647af5a1.image/png\",\n                \"description\": \"asset-2024-07-17T16:52:14.439Z.142ee86f-bc51-4d45-afae-54ec647af5a1.image/png\"\n            },\n            {\n                \"id\": \"e9da9467-e621-4499-9c68-25055c2f30f7\",\n                \"productId\": \"ff391ad4-84ae-40a8-917e-7b599feb2a8d\",\n                \"type\": \"image/png\",\n                \"url\": \"https://salvus-image-database.s3.amazonaws.com/asset-2024-07-17T16:52:14.439Z.f3752dd3-a73f-4c9f-9b95-2a997ab90d0a.image/png\",\n                \"description\": \"asset-2024-07-17T16:52:14.439Z.f3752dd3-a73f-4c9f-9b95-2a997ab90d0a.image/png\"\n            }\n        ]\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "GetProductById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/products/724455a7-f9be-484a-8ac5-b07b974243bc",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"products",
+								"724455a7-f9be-484a-8ac5-b07b974243bc"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GetProductById",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/products/724455a7-f9be-484a-8ac5-b07b974243bc",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"products",
+										"724455a7-f9be-484a-8ac5-b07b974243bc"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Length",
+									"value": "888"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 17 Jul 2024 23:10:35 GMT"
+								},
+								{
+									"key": "Etag",
+									"value": "W/\"378-j8p50/ZQwZxrZmMvJ8vlta8TApQ\""
+								},
+								{
+									"key": "Server",
+									"value": "railway-edge"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "t6qgwTyNSp-GVIK1i5FSXw_3165824431"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"724455a7-f9be-484a-8ac5-b07b974243bc\",\n    \"name\": \"Álcool Iodado 0,1% - 1L RioFarma\",\n    \"description\": \"O Álcool Iodado 0,1% é uma solução alcoólica contendo 0,1% de Iodo, indicada como antisséptico tópico, utilizada em curativos no tratamento de feridas. \\r\\n\\r\\nO Álcool Iodado 0,1% - Rioquímica deve ser utilizado para uso externo e ser aplicado topicamente em curativos no tratamento de feridas, principalmente para irrigações de feridas. \",\n    \"price\": 45,\n    \"createdAt\": \"2024-07-17T05:22:02.777Z\",\n    \"userId\": \"89186266-90ed-4b0d-b468-acc3d36e7fc1\",\n    \"assets\": [\n        {\n            \"id\": \"2851db49-54a9-4357-9207-45f3d6976cb9\",\n            \"productId\": \"724455a7-f9be-484a-8ac5-b07b974243bc\",\n            \"type\": \"image/jpeg\",\n            \"url\": \"https://salvus-image-database.s3.amazonaws.com/asset-2024-07-17T05:22:02.776Z.image/jpeg\",\n            \"description\": \"asset-2024-07-17T05:22:02.776Z.image/jpeg\"\n        }\n    ],\n    \"user\": {\n        \"firstName\": \"Leticia\",\n        \"lastName\": \"Correia\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Post Products",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJSUzI1NiIsImNhdCI6ImNsX0I3ZDRQRDExMUFBQSIsImtpZCI6Imluc18yajlmWmc5WWpFVnE3dWpZV1lycHg2SHRNakQiLCJ0eXAiOiJKV1QifQ.eyJhenAiOiJodHRwOi8vbG9jYWxob3N0OjUxNzMiLCJleHAiOjE3MjExNzg4MzksImlhdCI6MTcyMTE3ODc3OSwiaXNzIjoiaHR0cHM6Ly9pbmZpbml0ZS13ZXJld29sZi02My5jbGVyay5hY2NvdW50cy5kZXYiLCJuYmYiOjE3MjExNzg3NjksInNpZCI6InNlc3NfMmpMTVByVDk1ODdENDVxd0JJaUZERDFzQnRvIiwic3ViIjoidXNlcl8yakpGZTJxa1F4NU9hTW9CU214TnZRSE5udzQifQ.U35RgGnX8SuonJYZ6JEVDRbMpZmbbqE7ZnOwJc7y2kVClFOwI_bJ5vO6uHGzFoJo4c3Lp_8QFibDEwYrq0MG_gfH9_FsWTv-DHhQF6y6zyBba9KqlryYgSw5DfMWTKPM0WQ-v8rqKwRwai_-usHbNoODwETLy5bo1qobC-7F0ZfGlsY90fQRxyGN2hoouECNaHL_WM2asYACEc6-91sdQ0SoYdtyiNEwwKOlCQp8Z1tT9e68ttTBVlG1ETeeSzI99Ah7cd9-Lp4S3tMU-obmpwL2LNCI62xVtViaHoMOS9fjxl6wuoQK5YymzPT7wrFjwvudx4KaEVhhJdWjcvUhIw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "teste",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "teste descrição",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "300z",
+									"type": "text"
+								},
+								{
+									"key": "assets",
+									"type": "file",
+									"src": [
+										"postman-cloud:///1ef0f302-8802-4bb0-923a-7171186d4a4f",
+										"/C:/Users/gatux/Downloads/wallpaper (1).jpg"
+									]
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/products",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Post Products",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Produto Exemplo2\",\r\n  \"description\": \"Descrição detalhada do produto exemplo.\",\r\n  \"price\": 99.99,\r\n  \"assets\":[\r\n    {\r\n    \"productId\":\"32abd9c2-e132-46e6-bbf0-bd973b061e9e\",\r\n    \"type\":\"image\",\r\n    \"description\": \"teste\",\r\n    \"base64Data\":\"data:image/jpeg;base64,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\"\r\n}]\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/products",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"products"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "455"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1c7-DyuD5veDt2Q55PqhswzaelTep7o\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 15 Jul 2024 02:17:58 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"82ab1f78-33cd-4e70-ac4e-ccdb546adea4\",\n    \"name\": \"Produto Exemplo2\",\n    \"description\": \"Descrição detalhada do produto exemplo.\",\n    \"price\": 99.99,\n    \"createdAt\": \"2024-07-15T02:17:55.712Z\",\n    \"userId\": \"c0e6a505-fdc0-4db0-897f-96401bbc2a9c\",\n    \"assets\": [\n        {\n            \"id\": \"be13135f-097e-4912-ab2c-9539fc94e909\",\n            \"productId\": \"32abd9c2-e132-46e6-bbf0-bd973b061e9e\",\n            \"type\": \"image\",\n            \"url\": \"https://salvus-image-database.s3.amazonaws.com/asset-1721009876599.jpeg\",\n            \"description\": \"teste\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "DeleteProductById",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJSUzI1NiIsImNhdCI6ImNsX0I3ZDRQRDExMUFBQSIsImtpZCI6Imluc18yajlmWmc5WWpFVnE3dWpZV1lycHg2SHRNakQiLCJ0eXAiOiJKV1QifQ.eyJhenAiOiJodHRwczovL3NhbHZ1cy10ZXN0ZS52ZXJjZWwuYXBwIiwiZXhwIjoxNzIxMjY3MzU4LCJpYXQiOjE3MjEyNjcyOTgsImlzcyI6Imh0dHBzOi8vaW5maW5pdGUtd2VyZXdvbGYtNjMuY2xlcmsuYWNjb3VudHMuZGV2IiwibmJmIjoxNzIxMjY3Mjg4LCJzaWQiOiJzZXNzXzJqTlFNNHR4THQ1WTVDc2FCYnNTQVh2bmlJVCIsInN1YiI6InVzZXJfMmpNVVZFQlFsQW1POFZCRXpVNUVrS3BWS3lXIn0.4KPqf9d6AOjbdNiqvrzxlRfmMxuOvvAPAJ380P9mffigB5UEmVpsYFiMkwrLsBdODa2RMu-XkL_gmL56bGJqPyAHAPTv1nlzzXAFoEJv3zMBUxoKNzqOP37YxuHjzVCLUoetLSN4W6dCLG3OWRxRsDs2YuDRFmWrBhRRdwAcEhapky1cmEfbd2OXViLsWGQKlNLtjFLitGYrz20lw8oks5OEUfQpws8KmPbdU4v7gCC4L2-3FG2PJyryPSjOCCBZYwn2YrDL8iIVVPk2K8ChuI6PndwN-VLgdiKSkGsD7QNWQFx_ie5sGll8duBjmcB2bHg3Hcdym1DkLuch1NG1cw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/products/64cab85f-ac5c-44df-86a6-ebdba36d2c5d",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"products",
+								"64cab85f-ac5c-44df-86a6-ebdba36d2c5d"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "DeleteProductById",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJSUzI1NiIsImNhdCI6ImNsX0I3ZDRQRDExMUFBQSIsImtpZCI6Imluc18yajlmWmc5WWpFVnE3dWpZV1lycHg2SHRNakQiLCJ0eXAiOiJKV1QifQ.eyJhenAiOiJodHRwczovL3NhbHZ1cy10ZXN0ZS52ZXJjZWwuYXBwIiwiZXhwIjoxNzIxMjY3MzU4LCJpYXQiOjE3MjEyNjcyOTgsImlzcyI6Imh0dHBzOi8vaW5maW5pdGUtd2VyZXdvbGYtNjMuY2xlcmsuYWNjb3VudHMuZGV2IiwibmJmIjoxNzIxMjY3Mjg4LCJzaWQiOiJzZXNzXzJqTlFNNHR4THQ1WTVDc2FCYnNTQVh2bmlJVCIsInN1YiI6InVzZXJfMmpNVVZFQlFsQW1POFZCRXpVNUVrS3BWS3lXIn0.4KPqf9d6AOjbdNiqvrzxlRfmMxuOvvAPAJ380P9mffigB5UEmVpsYFiMkwrLsBdODa2RMu-XkL_gmL56bGJqPyAHAPTv1nlzzXAFoEJv3zMBUxoKNzqOP37YxuHjzVCLUoetLSN4W6dCLG3OWRxRsDs2YuDRFmWrBhRRdwAcEhapky1cmEfbd2OXViLsWGQKlNLtjFLitGYrz20lw8oks5OEUfQpws8KmPbdU4v7gCC4L2-3FG2PJyryPSjOCCBZYwn2YrDL8iIVVPk2K8ChuI6PndwN-VLgdiKSkGsD7QNWQFx_ie5sGll8duBjmcB2bHg3Hcdym1DkLuch1NG1cw",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/products/64cab85f-ac5c-44df-86a6-ebdba36d2c5d",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"products",
+										"64cab85f-ac5c-44df-86a6-ebdba36d2c5d"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1f-VJ3hHXYIWeDz7l6e9bs3K358LlM\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 18 Jul 2024 01:48:24 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "UpdateProductById",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJSUzI1NiIsImNhdCI6ImNsX0I3ZDRQRDExMUFBQSIsImtpZCI6Imluc18yajlmWmc5WWpFVnE3dWpZV1lycHg2SHRNakQiLCJ0eXAiOiJKV1QifQ.eyJhenAiOiJodHRwczovL3NhbHZ1cy10ZXN0ZS52ZXJjZWwuYXBwIiwiZXhwIjoxNzIxMjY3MDUwLCJpYXQiOjE3MjEyNjY5OTAsImlzcyI6Imh0dHBzOi8vaW5maW5pdGUtd2VyZXdvbGYtNjMuY2xlcmsuYWNjb3VudHMuZGV2IiwibmJmIjoxNzIxMjY2OTgwLCJzaWQiOiJzZXNzXzJqTlFNNHR4THQ1WTVDc2FCYnNTQVh2bmlJVCIsInN1YiI6InVzZXJfMmpNVVZFQlFsQW1POFZCRXpVNUVrS3BWS3lXIn0.D99EXksrzzuAOzsDYTw_C8-y4dT7XItzaRXujWm1KTqpxhBEatRFXty1s5b40vnH7rkFMIHEc2tlgoCUR2nlwZMnVqAIV1wOqB6yP4vlmSX3Nc-ytLd3tpYxzU8RDXrh7Db9AwS7U2beAJTv61H4Tb1akc1wTpxvoqh1VIVGW-3VxkiLngMAZMseSs-Ek1J2nrWD3lbHP1TorXqp2DkFN4EkYKeOPLF-qYBj3JgyJZBmYsM7lmtaEmdeOB2oGBIfba3-94QItQkjuuKdGotT6Flp8cQtg9jFbPIHEbiuiGRS7X8u0GTdVs1J8RybrVr586ltxwa5JWA5sebKQeOigA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Aparelho de Pressão Digital de Pulso G-Tech",
+									"description": "nome",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Indicador gráfico de nível de pressão arterial; Indicador de correta colocação da braçadeira e de movimentação excessiva; 240 memórias (com hora e data) e zonas individuais para até dois usuários; Validado clinicamente; Pressão Sistólica e Pressão diastólica; Indicador de arritmia;",
+									"description": "descrição",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "85",
+									"description": "preço",
+									"type": "text"
+								},
+								{
+									"key": "deleteAssetsIds",
+									"value": "[]",
+									"description": "assets para deletar nesse put caso desejar remover algum. é um array de string, cada item é o id de um asset, ex: \"['123-123123-231', '123-12312-312','1233-1234-124']\"",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/products/ae4e5daf-d163-44cd-91a8-13434d66524c",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"products",
+								"ae4e5daf-d163-44cd-91a8-13434d66524c"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "UpdateProductById",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJSUzI1NiIsImNhdCI6ImNsX0I3ZDRQRDExMUFBQSIsImtpZCI6Imluc18yajlmWmc5WWpFVnE3dWpZV1lycHg2SHRNakQiLCJ0eXAiOiJKV1QifQ.eyJhenAiOiJodHRwczovL3NhbHZ1cy10ZXN0ZS52ZXJjZWwuYXBwIiwiZXhwIjoxNzIxMjY3MDUwLCJpYXQiOjE3MjEyNjY5OTAsImlzcyI6Imh0dHBzOi8vaW5maW5pdGUtd2VyZXdvbGYtNjMuY2xlcmsuYWNjb3VudHMuZGV2IiwibmJmIjoxNzIxMjY2OTgwLCJzaWQiOiJzZXNzXzJqTlFNNHR4THQ1WTVDc2FCYnNTQVh2bmlJVCIsInN1YiI6InVzZXJfMmpNVVZFQlFsQW1POFZCRXpVNUVrS3BWS3lXIn0.D99EXksrzzuAOzsDYTw_C8-y4dT7XItzaRXujWm1KTqpxhBEatRFXty1s5b40vnH7rkFMIHEc2tlgoCUR2nlwZMnVqAIV1wOqB6yP4vlmSX3Nc-ytLd3tpYxzU8RDXrh7Db9AwS7U2beAJTv61H4Tb1akc1wTpxvoqh1VIVGW-3VxkiLngMAZMseSs-Ek1J2nrWD3lbHP1TorXqp2DkFN4EkYKeOPLF-qYBj3JgyJZBmYsM7lmtaEmdeOB2oGBIfba3-94QItQkjuuKdGotT6Flp8cQtg9jFbPIHEbiuiGRS7X8u0GTdVs1J8RybrVr586ltxwa5JWA5sebKQeOigA",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Aparelho de Pressão Digital de Pulso G-Tech",
+											"description": "nome",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "Indicador gráfico de nível de pressão arterial; Indicador de correta colocação da braçadeira e de movimentação excessiva; 240 memórias (com hora e data) e zonas individuais para até dois usuários; Validado clinicamente; Pressão Sistólica e Pressão diastólica; Indicador de arritmia;",
+											"description": "descrição",
+											"type": "text"
+										},
+										{
+											"key": "price",
+											"value": "85",
+											"description": "preço",
+											"type": "text"
+										},
+										{
+											"key": "deleteAssetsIds",
+											"value": "[]",
+											"description": "assets para deletar nesse put caso desejar remover algum. é um array de string, cada item é o id de um asset, ex: \"['123-123123-231', '123-12312-312','1233-1234-124']\"",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/products/ae4e5daf-d163-44cd-91a8-13434d66524c",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"products",
+										"ae4e5daf-d163-44cd-91a8-13434d66524c"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1560"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"618-ogwfWIcy9SBB64xNFcAEUwCI6Zk\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 18 Jul 2024 01:44:00 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"ae4e5daf-d163-44cd-91a8-13434d66524c\",\n    \"name\": \"Aparelho de Pressão Digital de Pulso G-Tech\",\n    \"description\": \"Indicador gráfico de nível de pressão arterial; Indicador de correta colocação da braçadeira e de movimentação excessiva; 240 memórias (com hora e data) e zonas individuais para até dois usuários; Validado clinicamente; Pressão Sistólica e Pressão diastólica; Indicador de arritmia;\",\n    \"price\": 85,\n    \"createdAt\": \"2024-07-17T23:40:41.713Z\",\n    \"userId\": \"ec23270b-8a0d-4647-94d0-e36103da127c\",\n    \"assets\": [\n        {\n            \"id\": \"8b461d0a-931e-4ddb-9636-71c20ffeb9b2\",\n            \"productId\": \"ae4e5daf-d163-44cd-91a8-13434d66524c\",\n            \"type\": \"image/jpeg\",\n            \"url\": \"https://salvus-image-database.s3.amazonaws.com/asset-2024-07-17T23:40:41.711Z.65767889-799c-43b5-826d-ffbd7195df68.image/jpeg\",\n            \"description\": \"asset-2024-07-17T23:40:41.711Z.65767889-799c-43b5-826d-ffbd7195df68.image/jpeg\"\n        },\n        {\n            \"id\": \"c7e0d06f-37c5-4235-b447-bdf1aa216c7c\",\n            \"productId\": \"ae4e5daf-d163-44cd-91a8-13434d66524c\",\n            \"type\": \"image/webp\",\n            \"url\": \"https://salvus-image-database.s3.amazonaws.com/asset-2024-07-17T23:40:41.712Z.fc818867-e56d-42eb-833d-33a0a451f772.image/webp\",\n            \"description\": \"asset-2024-07-17T23:40:41.712Z.fc818867-e56d-42eb-833d-33a0a451f772.image/webp\"\n        },\n        {\n            \"id\": \"e732d8ea-e370-455e-98bc-7232ab6e206b\",\n            \"productId\": \"ae4e5daf-d163-44cd-91a8-13434d66524c\",\n            \"type\": \"image/webp\",\n            \"url\": \"https://salvus-image-database.s3.amazonaws.com/asset-2024-07-17T23:40:41.712Z.bb0d2d70-2ade-4f28-aff0-ab134726b53a.image/webp\",\n            \"description\": \"asset-2024-07-17T23:40:41.712Z.bb0d2d70-2ade-4f28-aff0-ab134726b53a.image/webp\"\n        }\n    ]\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Assets",
+			"item": [
+				{
+					"name": "PostAsset",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJSUzI1NiIsImNhdCI6ImNsX0I3ZDRQRDExMUFBQSIsImtpZCI6Imluc18yajlmWmc5WWpFVnE3dWpZV1lycHg2SHRNakQiLCJ0eXAiOiJKV1QifQ.eyJhenAiOiJodHRwczovL3NhbHZ1cy10ZXN0ZS52ZXJjZWwuYXBwIiwiZXhwIjoxNzIxMjY3NDE2LCJpYXQiOjE3MjEyNjczNTYsImlzcyI6Imh0dHBzOi8vaW5maW5pdGUtd2VyZXdvbGYtNjMuY2xlcmsuYWNjb3VudHMuZGV2IiwibmJmIjoxNzIxMjY3MzQ2LCJzaWQiOiJzZXNzXzJqTlFNNHR4THQ1WTVDc2FCYnNTQVh2bmlJVCIsInN1YiI6InVzZXJfMmpNVVZFQlFsQW1POFZCRXpVNUVrS3BWS3lXIn0.ObNEi4i3GbD2YPf1vkLJzYPeddd3DOP6Yi7N0aMN1n7zSJvg5c6Rj0XYopkLOQISs7jSec7s2GCdQSEhmVPkNh53kfimFZzLFZZB0P8On8aOiHHLySXmVRoZY_2m4h7CzeaLkPNlx9dQWfVo8uQn2PWKCR0vmSWyFwNecDQlKCZ-J5UTETZPPIbmao6Fi4K_vXLOdYobbmJrP2FpBymtTA3fAzJH45OsApKMM39X0Sl7wsAUnvWZZn-mp7wBnJQTty8WtdOGalC1efK51BS4SBE2A5IXZqHlL1aRs0qoeiZFgoeBdwQ5kDrO0tQ5JBN_IL6u_am9Sk3nhl_nokZxGA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "productId",
+									"value": "ae4e5daf-d163-44cd-91a8-13434d66524c",
+									"type": "text"
+								},
+								{
+									"key": "asset",
+									"type": "file",
+									"src": "postman-cloud:///1ef0f302-8802-4bb0-923a-7171186d4a4f"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/assets",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"assets"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "PostAsset",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJSUzI1NiIsImNhdCI6ImNsX0I3ZDRQRDExMUFBQSIsImtpZCI6Imluc18yajlmWmc5WWpFVnE3dWpZV1lycHg2SHRNakQiLCJ0eXAiOiJKV1QifQ.eyJhenAiOiJodHRwczovL3NhbHZ1cy10ZXN0ZS52ZXJjZWwuYXBwIiwiZXhwIjoxNzIxMjY3NDE2LCJpYXQiOjE3MjEyNjczNTYsImlzcyI6Imh0dHBzOi8vaW5maW5pdGUtd2VyZXdvbGYtNjMuY2xlcmsuYWNjb3VudHMuZGV2IiwibmJmIjoxNzIxMjY3MzQ2LCJzaWQiOiJzZXNzXzJqTlFNNHR4THQ1WTVDc2FCYnNTQVh2bmlJVCIsInN1YiI6InVzZXJfMmpNVVZFQlFsQW1POFZCRXpVNUVrS3BWS3lXIn0.ObNEi4i3GbD2YPf1vkLJzYPeddd3DOP6Yi7N0aMN1n7zSJvg5c6Rj0XYopkLOQISs7jSec7s2GCdQSEhmVPkNh53kfimFZzLFZZB0P8On8aOiHHLySXmVRoZY_2m4h7CzeaLkPNlx9dQWfVo8uQn2PWKCR0vmSWyFwNecDQlKCZ-J5UTETZPPIbmao6Fi4K_vXLOdYobbmJrP2FpBymtTA3fAzJH45OsApKMM39X0Sl7wsAUnvWZZn-mp7wBnJQTty8WtdOGalC1efK51BS4SBE2A5IXZqHlL1aRs0qoeiZFgoeBdwQ5kDrO0tQ5JBN_IL6u_am9Sk3nhl_nokZxGA",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "productId",
+											"value": "ae4e5daf-d163-44cd-91a8-13434d66524c",
+											"type": "text"
+										},
+										{
+											"key": "asset",
+											"type": "file",
+											"src": "postman-cloud:///1ef0f302-8802-4bb0-923a-7171186d4a4f"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/assets",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"assets"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "344"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"158-wpJLKtuNDMvxCwjEQF1yEfJynKw\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 18 Jul 2024 01:49:23 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": \"234189f8-9496-4761-927d-b3fa429928e6\",\n        \"productId\": \"ae4e5daf-d163-44cd-91a8-13434d66524c\",\n        \"type\": \"image/png\",\n        \"url\": \"https://salvus-image-database.s3.amazonaws.com/asset-2024-07-18T01:49:20.545Z.67b1e967-07dc-43b5-9859-1084d114fc80.image/png\",\n        \"description\": \"asset-2024-07-18T01:49:20.545Z.67b1e967-07dc-43b5-9859-1084d114fc80.image/png\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "DeleteAssetById",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJSUzI1NiIsImNhdCI6ImNsX0I3ZDRQRDExMUFBQSIsImtpZCI6Imluc18yajlmWmc5WWpFVnE3dWpZV1lycHg2SHRNakQiLCJ0eXAiOiJKV1QifQ.eyJhenAiOiJodHRwczovL3NhbHZ1cy10ZXN0ZS52ZXJjZWwuYXBwIiwiZXhwIjoxNzIxMjY3NDQwLCJpYXQiOjE3MjEyNjczODAsImlzcyI6Imh0dHBzOi8vaW5maW5pdGUtd2VyZXdvbGYtNjMuY2xlcmsuYWNjb3VudHMuZGV2IiwibmJmIjoxNzIxMjY3MzcwLCJzaWQiOiJzZXNzXzJqTlFNNHR4THQ1WTVDc2FCYnNTQVh2bmlJVCIsInN1YiI6InVzZXJfMmpNVVZFQlFsQW1POFZCRXpVNUVrS3BWS3lXIn0.7TFDKhhsMIBL2z-e7el-bq4DGJZqtYISrMfy0wZ1FOmySHy4h14wrDUVjWh8qKyXmEk7hxxar3qVph8qmbRCmpv236JNYyszUiFnxci0_aWeeVy2EkI1T0Iyr2VX68JsAeV9r0CZbqvxUtkOBUbGT9OOoc1eHwfduGoWwmS0hvcPyIw0vgNSwKIGFA8TzsEj2tKjb-vD4H4kQrwWkAuz9c0-pSWthtYN_mMiVtHASm3eoU7MACfYGmpbq12CcnGw1ND6e5CMxkzP1GdN3u-0Yr95Q2wNndc-Rd6AfAS0EK6pwC5VspRM9BODu3HUOL2rkWWXhG_LZSvpSrr9FmmxQA",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/assets/234189f8-9496-4761-927d-b3fa429928e6",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"assets",
+								"234189f8-9496-4761-927d-b3fa429928e6"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "DeleteAssetById",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJSUzI1NiIsImNhdCI6ImNsX0I3ZDRQRDExMUFBQSIsImtpZCI6Imluc18yajlmWmc5WWpFVnE3dWpZV1lycHg2SHRNakQiLCJ0eXAiOiJKV1QifQ.eyJhenAiOiJodHRwczovL3NhbHZ1cy10ZXN0ZS52ZXJjZWwuYXBwIiwiZXhwIjoxNzIxMjY3NDQwLCJpYXQiOjE3MjEyNjczODAsImlzcyI6Imh0dHBzOi8vaW5maW5pdGUtd2VyZXdvbGYtNjMuY2xlcmsuYWNjb3VudHMuZGV2IiwibmJmIjoxNzIxMjY3MzcwLCJzaWQiOiJzZXNzXzJqTlFNNHR4THQ1WTVDc2FCYnNTQVh2bmlJVCIsInN1YiI6InVzZXJfMmpNVVZFQlFsQW1POFZCRXpVNUVrS3BWS3lXIn0.7TFDKhhsMIBL2z-e7el-bq4DGJZqtYISrMfy0wZ1FOmySHy4h14wrDUVjWh8qKyXmEk7hxxar3qVph8qmbRCmpv236JNYyszUiFnxci0_aWeeVy2EkI1T0Iyr2VX68JsAeV9r0CZbqvxUtkOBUbGT9OOoc1eHwfduGoWwmS0hvcPyIw0vgNSwKIGFA8TzsEj2tKjb-vD4H4kQrwWkAuz9c0-pSWthtYN_mMiVtHASm3eoU7MACfYGmpbq12CcnGw1ND6e5CMxkzP1GdN3u-0Yr95Q2wNndc-Rd6AfAS0EK6pwC5VspRM9BODu3HUOL2rkWWXhG_LZSvpSrr9FmmxQA",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/assets/234189f8-9496-4761-927d-b3fa429928e6",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"assets",
+										"234189f8-9496-4761-927d-b3fa429928e6"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1b-hxTq62crxSP/hvp8koQwQUpgeTU\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 18 Jul 2024 01:49:53 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		}
+	]
+}
