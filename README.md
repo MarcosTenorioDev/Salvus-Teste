@@ -1,5 +1,7 @@
 # Salvus - Teste Desenvolvedor Junior
 
+## Acesse aqui: https://salvus-teste.vercel.app/
+
 Med + é uma aplicação fullstack desenvolvida como parte de um teste técnico para desenvolvedor júnior na Salvus. O projeto consiste em um e-commerce de produtos médicos, permitindo a criação, edição e visualização de produtos com várias imagens, preço e descrição detalhada.
 
 ![image](https://github.com/user-attachments/assets/4a0af80a-f946-472e-959b-1a8a83203161)
