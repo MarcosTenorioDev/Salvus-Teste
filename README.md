@@ -33,6 +33,11 @@ Med + é uma aplicação fullstack desenvolvida como parte de um teste técnico 
 - **Clerk**: Biblioteca para autenticação e gerenciamento de usuários.
 - **Shadcn**: Biblioteca de componentes de interface de usuário open source.
 
+### Serviços de deploy:
+- Backend : Railway
+- Banco de dados : Railway
+- Frontend : Vercel
+
 ### Configuração e Execução do Projeto:
 
 Passo 1 - Clonar o Repositório
