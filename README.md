@@ -43,9 +43,9 @@ Dica: Há um arquivo chamado 'Salvus.postman_collection.json', utilize-o para ve
 - **Shadcn**: Biblioteca de componentes de interface de usuário open source.
 
 ### Serviços de deploy:
-- Backend : Railway
+- Backend : Railway - https://salvus-teste-production.up.railway.app/health
 - Banco de dados : Railway
-- Frontend : Vercel
+- Frontend : Vercel - https://salvus-teste.vercel.app
 
 ### Configuração e Execução do Projeto:
 
