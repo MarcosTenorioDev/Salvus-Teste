@@ -1,67 +1,63 @@
-# Salvus - Teste Desenvolvedor Junior
+# Salvus - Junior Developer Test
 
-## Acesse aqui: https://salvus-teste.vercel.app/
+## Access here: [https://salvus-teste.vercel.app/](https://salvus-teste.vercel.app/)
 
-Med + é uma aplicação fullstack desenvolvida como parte de um teste técnico para desenvolvedor júnior na Salvus. O projeto consiste em um e-commerce de produtos médicos, permitindo a criação, edição e visualização de produtos com várias imagens, preço e descrição detalhada.
+Med + is a fullstack application developed as part of a technical test for a junior developer position at Salvus. The project consists of an e-commerce platform for medical products, allowing the creation, editing, and viewing of products with multiple images, pricing, and detailed descriptions.
 
 ![image](https://github.com/user-attachments/assets/4a0af80a-f946-472e-959b-1a8a83203161)
 
-## Funcionalidades
+## Features
 
-- **Criação de Produtos**: Permite criar produtos com múltiplas imagens e informações detalhadas.
-- **Edição de Produtos**: Funcionalidade para editar informações e imagens de produtos existentes.
-- **Autenticação de requisições**: Permite aos usuários ter uma proteção maior quanto a edição de seus produtos, pois os mesmo só podem ser editados com um token de autorização válido e apenas pelo próprio criador do produto.
- ![salvus-teste vercel app_managment_product_ae4e5daf-d163-44cd-91a8-13434d66524c](https://github.com/user-attachments/assets/73655860-88af-4c41-bb83-27b14b8f36fd)
+- **Product Creation**: Allows users to create products with multiple images and detailed information.
+- **Product Editing**: Functionality to edit information and images of existing products.
+- **Request Authentication**: Provides users with greater security for editing their products, as they can only be edited with a valid authorization token and only by the creator of the product.
+  ![salvus-teste vercel app_managment_product_ae4e5daf-d163-44cd-91a8-13434d66524c](https://github.com/user-attachments/assets/73655860-88af-4c41-bb83-27b14b8f36fd)
 
-- **Visualização de Produtos**: Permite aos usuários visualizar os detalhes dos produtos, incluindo imagens em um carrossel.
-- **100% responsivo**: Aplicação criada seguindo os conceitos do 'mobile first'.
+- **Product Viewing**: Allows users to view product details, including images in a carousel.
+- **100% Responsive**: Application created following mobile-first principles.
 
-
-- **Gerenciamento de Perfil de usuário... criação, edição e exclusão de conta**: Permite aos usuários visualizar os detalhes dos produtos, incluindo imagens em um carrossel.
+- **User Profile Management... account creation, editing, and deletion**: Allows users to view product details, including images in a carousel.
 ![image](https://github.com/user-attachments/assets/4eca1496-d18e-42e3-9595-d420c339c241)
 
-
-## Tecnologias Utilizadas
+## Technologies Used
 
 ### Backend
-Dica: Há um arquivo chamado 'Salvus.postman_collection.json', utilize-o para ver os exemplos das requisições no postman. Caso deseje pegar um token, faça o login na aplicação, va até o 'console do desenvolvedor' > 'aplication' > 'Cookies' > '_session'. esse é o seu token de autenticação de requisição. lembre-se, ele expira rápido, para a segurança da aplicação, então ao pegar o token, jogue-o o no postman e faça sua requisição
+Tip: There is a file named 'Salvus.postman_collection.json', use it to see examples of requests in Postman. If you want to obtain a token, log in to the application, go to the 'developer console' > 'application' > 'Cookies' > '_session'. This is your request authentication token. Remember, it expires quickly for the application's security, so once you get the token, put it in Postman and make your request.
 
-
-- **Node.js**: Plataforma de desenvolvimento para a construção do servidor backend.
-- **Express**: Framework web usado para criar o servidor e gerenciar rotas.
-- **Prisma**: ORM utilizado para gerenciar o banco de dados e realizar consultas eficientes.
-- **AWS SDK**: Foi usado um bucket S3 da Amazon para o armazenamento de imagens, visando reduzir o armazenamento e processamento do servidor, utilizando apenas as URLs retornadas pelo serviço.
-- **Clerk**: Utilizado para autenticação e autorização de usuários.
-- **Multer**: Middleware para manipulação de uploads de arquivos.
-- **MySql**: Banco de dados relacional. (entidades: products, assets e user)
+- **Node.js**: Development platform for building the backend server.
+- **Express**: Web framework used to create the server and manage routes.
+- **Prisma**: ORM used to manage the database and perform efficient queries.
+- **AWS SDK**: An Amazon S3 bucket was used for image storage, aiming to reduce server storage and processing by utilizing only the URLs returned by the service.
+- **Clerk**: Used for user authentication and authorization.
+- **Multer**: Middleware for handling file uploads.
+- **MySQL**: Relational database. (entities: products, assets, and user)
 
 ### Frontend
 
-- **React.js**: Biblioteca para construção de interfaces de usuário.
-- **Tailwind CSS**: Framework de CSS utilitário para estilização de componentes.
-- **Clerk**: Biblioteca para autenticação e gerenciamento de usuários.
-- **Shadcn**: Biblioteca de componentes de interface de usuário open source.
+- **React.js**: Library for building user interfaces.
+- **Tailwind CSS**: Utility CSS framework for styling components.
+- **Clerk**: Library for authentication and user management.
+- **Shadcn**: Open-source UI component library.
 
-### Serviços de deploy:
-- Backend : Railway - https://salvus-teste-production.up.railway.app/health
-- Banco de dados : Railway
-- Frontend : Vercel - https://salvus-teste.vercel.app
+### Deployment Services:
+- Backend: Railway - [https://salvus-teste-production.up.railway.app/health](https://salvus-teste-production.up.railway.app/health)
+- Database: Railway
+- Frontend: Vercel - [https://salvus-teste.vercel.app](https://salvus-teste.vercel.app)
 
-### Configuração e Execução do Projeto:
+### Project Setup and Execution:
 
-Passo 1 - Clonar o Repositório
-- Abra um terminal git bash
-- git clone <URL_DO_REPOSITÓRIO>
+**Step 1 - Clone the Repository**
+- Open a git bash terminal
+- `git clone <REPOSITORY_URL>`
 
-Executar o backend:
-- Acessar o diretório /backend (rode no terminal 'cd backend') e instalar as dependências (rode no terminal 'npm i')
-- Preencher as variáveis .env que constam no .env.sample
-- Rode o comando 'npm run dev' no terminal
+**Run the backend:**
+- Access the /backend directory (run `cd backend` in the terminal) and install dependencies (run `npm i` in the terminal)
+- Fill in the .env variables specified in .env.sample
+- Run the command `npm run dev` in the terminal
 
-Executar o frontend:
-- Acessar o diretório /frontend (rode no terminal 'cd frontend') e instalar as dependências (rode no terminal 'npm i')
-- Preencher as variáveis .env que constam no .env.sample
-- Rode o comando 'npm run dev' no terminal
+**Run the frontend:**
+- Access the /frontend directory (run `cd frontend` in the terminal) and install dependencies (run `npm i` in the terminal)
+- Fill in the .env variables specified in .env.sample
+- Run the command `npm run dev` in the terminal
 
-
-## Feito com carinho 💚 por MarcosTenorio &#128640;
+## Made with love 💚 by MarcosTenorio 🚀
